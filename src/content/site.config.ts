@@ -14,8 +14,8 @@ export const siteConfig: SiteConfig = {
     email: "hello@hungvo.dev",
   },
   social: {
-    github: "https://github.com/hungvo",
-    linkedin: "https://linkedin.com/in/hungvo",
+    github: "https://github.com/VoMinhHung-SR",
+    linkedin: "https://www.linkedin.com/in/hiiro-dev/",
   },
   keywords: [
     "Frontend Developer",
@@ -51,7 +51,7 @@ export const siteConfig: SiteConfig = {
     },
   ],
   siteNav: [
-    { label: "Home", href: "/", kind: "route", enabled: true },
+    { label: "Home", href: "/", kind: "route", enabled: false },
     { label: "Blog", href: "/blog", kind: "route", enabled: false },
     { label: "Notes", href: "/notes", kind: "route", enabled: false },
     { label: "Lab", href: "/lab", kind: "route", enabled: false },

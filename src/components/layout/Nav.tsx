@@ -1,21 +1,33 @@
 import { siteConfig } from "@/content/site.config";
-import { InternalLink } from "@/components/ui/ExternalLink";
+import { InternalLink } from "@/components/ui/Link";
 import { cn } from "@/lib/cn";
+import type { NavItem } from "@/types/content";
+
+function NavLink({ item }: { item: NavItem }) {
+  const isRoute = item.kind === "route";
+
+  return (
+    <InternalLink
+      href={item.href}
+      className={cn("text-sm", isRoute ? "text-foreground" : "text-muted")}
+    >
+      {item.label}
+    </InternalLink>
+  );
+}
 
 function NavList({
   items,
   className,
 }: {
-  items: typeof siteConfig.homeNav;
+  items: NavItem[];
   className?: string;
 }) {
   return (
     <ul className={cn("flex flex-col gap-2", className)}>
       {items.map((item) => (
         <li key={item.href}>
-          <InternalLink href={item.href} className="text-sm text-muted">
-            {item.label}
-          </InternalLink>
+          <NavLink item={item} />
         </li>
       ))}
     </ul>
@@ -28,10 +40,12 @@ export function Nav() {
   return (
     <nav aria-label="Primary">
       <NavList items={siteConfig.homeNav} className="hidden lg:flex" />
-      <NavList
-        items={enabledSiteNav}
-        className="mt-4 hidden border-t border-surface pt-4 lg:flex"
-      />
+      {enabledSiteNav.length > 0 && (
+        <NavList
+          items={enabledSiteNav}
+          className="mt-4 hidden border-t border-surface pt-4 lg:flex"
+        />
+      )}
       <NavList items={siteConfig.homeNav} className="flex lg:hidden" />
     </nav>
   );

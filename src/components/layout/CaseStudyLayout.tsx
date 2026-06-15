@@ -1,4 +1,4 @@
-import { InternalLink } from "@/components/ui/ExternalLink";
+import { InternalLink } from "@/components/ui/Link";
 import { Container } from "@/components/ui/Container";
 
 interface CaseStudyLayoutProps {

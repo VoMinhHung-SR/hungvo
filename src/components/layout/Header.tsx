@@ -1,5 +1,5 @@
 import { siteConfig } from "@/content/site.config";
-import { InternalLink } from "@/components/ui/ExternalLink";
+import { InternalLink } from "@/components/ui/Link";
 
 export function Header() {
   return (
