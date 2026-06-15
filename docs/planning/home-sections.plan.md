@@ -27,8 +27,8 @@ Phase 1 foundation must be complete and build-verified.
 
 ## Exit criteria
 
-- [ ] Home page renders all five sections with real content
-- [ ] Hash navigation (`/#about`, `/#projects`, etc.) scrolls correctly
-- [ ] Project cards link to `/projects/[slug]`
-- [ ] Nav active state highlights current section
-- [ ] Responsive layout on mobile and desktop
+- [x] Home page renders all five sections with real content
+- [x] Hash navigation (`/#about`, `/#projects`, etc.) scrolls correctly
+- [x] Project cards link to `/projects/[slug]`
+- [x] Nav active state highlights current section
+- [x] Responsive layout on mobile and desktop

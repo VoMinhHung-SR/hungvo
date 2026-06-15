@@ -21,6 +21,11 @@ export interface SiteSocial {
   linkedin: string;
 }
 
+export interface SiteGithub {
+  username: string;
+  contributionsApi: string;
+}
+
 export interface SiteConfig {
   name: string;
   title: string;
@@ -28,6 +33,7 @@ export interface SiteConfig {
   url: string;
   author: SiteAuthor;
   social: SiteSocial;
+  github: SiteGithub;
   keywords: string[];
   homeNav: NavItem[];
   siteNav: NavItem[];

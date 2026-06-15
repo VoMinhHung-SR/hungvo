@@ -17,6 +17,10 @@ export const siteConfig: SiteConfig = {
     github: "https://github.com/VoMinhHung-SR",
     linkedin: "https://www.linkedin.com/in/hiiro-dev/",
   },
+  github: {
+    username: "VoMinhHung-SR",
+    contributionsApi: "https://github-contributions-api.jogruber.de/v4",
+  },
   keywords: [
     "Frontend Developer",
     "React",

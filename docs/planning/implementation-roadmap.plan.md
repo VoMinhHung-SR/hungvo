@@ -1,6 +1,6 @@
 # Implementation Roadmap
 
-> Active cross-phase plan. Last updated: 2026-06-15.
+> Active cross-phase plan. Last updated: 2026-06-16.
 
 ## Phase 1 — Foundation (complete)
 
@@ -8,11 +8,17 @@ Theme, content registry, nested layouts, SEO infrastructure, empty page shells.
 
 Archived: [phase-1-foundation.plan.md](../archive/2026-06/phase-1-foundation.plan.md)
 
-## Phase 2 — Home Sections UI
+## Phase 2 — Home Sections UI (complete)
 
 Hero, About, Projects, Learning, Contact. Nav active states. Project cards.
 
-Active plan: [home-sections.plan.md](home-sections.plan.md)
+Plan: [home-sections.plan.md](home-sections.plan.md)
+
+## Phase 2.5 — Contribution Graph (complete)
+
+Custom GitHub-style heatmap in Learning section via [jogruber contributions API](https://github-contributions-api.jogruber.de/v4/VoMinhHung-SR?y=all). Rolling year default, year selector, blue accent scale, hover tooltips.
+
+Archived: [contribution-graph.plan.md](../archive/2026-06/contribution-graph.plan.md)
 
 ## Phase 3 — Case Studies
 
