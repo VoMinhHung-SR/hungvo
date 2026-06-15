@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --surface: #141414;
+  --surface-elevated: #1c1c1c;
+  --foreground: #ededed;
+  --muted: #888888;
+  --accent: #5cdb95;
+  --border: #262626;
+  --focus: #5cdb95;
+  --success: #4ade80;
+
+  --width-content: 64rem;
+  --width-reading: 48rem;
+  --spacing-section: 6rem;
+  --spacing-nav-offset: 5rem;
+
+  --text-hero: clamp(3rem, 8vw, 6rem);
+  --text-section: clamp(2.5rem, 5vw, 3.5rem);
+  --text-body: 1.0625rem;
+  --leading-body: 1.6;
+  --leading-heading: 1.1;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-focus: var(--focus);
+  --color-success: var(--success);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --spacing-section: var(--spacing-section);
+  --spacing-nav: var(--spacing-nav-offset);
+
+  --max-width-content: var(--width-content);
+  --max-width-reading: var(--width-reading);
+
+  --text-hero: var(--text-hero);
+  --text-section: var(--text-section);
+  --text-body: var(--text-body);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+.text-hero {
+  font-size: var(--text-hero);
+  line-height: var(--leading-heading);
+  text-wrap: balance;
+}
+
+.text-section {
+  font-size: var(--text-section);
+  line-height: var(--leading-heading);
+  text-wrap: balance;
+}
+
+.link-accent {
+  color: var(--accent);
+  text-underline-offset: 0.25rem;
+}
+
+.link-accent:hover {
+  text-decoration: underline;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 50;
+  transform: translateY(-200%);
+  padding: 0.5rem 1rem;
+  background-color: var(--surface-elevated);
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
