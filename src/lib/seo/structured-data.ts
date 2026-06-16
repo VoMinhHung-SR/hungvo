@@ -29,13 +29,24 @@ export function articleSchema(options: {
   title: string;
   description: string;
   path: string;
+  datePublished: string;
+  dateModified: string;
+  image: string;
+  keywords: string[];
+  about?: string[];
 }) {
+  const imageUrl = new URL(options.image, siteConfig.url).toString();
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: options.title,
     description: options.description,
     url: new URL(options.path, siteConfig.url).toString(),
+    datePublished: options.datePublished,
+    dateModified: options.dateModified,
+    image: [imageUrl],
+    keywords: options.keywords.join(", "),
     author: {
       "@type": "Person",
       name: siteConfig.author.name,
@@ -44,6 +55,14 @@ export function articleSchema(options: {
       "@type": "Person",
       name: siteConfig.author.name,
     },
+    ...(options.about?.length
+      ? {
+          about: options.about.map((name) => ({
+            "@type": "Thing",
+            name,
+          })),
+        }
+      : {}),
   };
 }
 

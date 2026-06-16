@@ -20,9 +20,11 @@ Custom GitHub-style heatmap in Learning section via [jogruber contributions API]
 
 Archived: [contribution-graph.plan.md](../archive/2026-06/contribution-graph.plan.md)
 
-## Phase 3 — Case Studies
+## Phase 3 — Case Studies (complete)
 
-Case study article layout + section rendering from typed content. Article JSON-LD. Real screenshots.
+Case study article layout + section rendering from typed content. Article JSON-LD. Placeholder screenshots (replace with real assets).
+
+Archived: [case-study-system.plan.md](../archive/2026-06/case-study-system.plan.md)
 
 ## Phase 4 — Publishing (Blog + Technical Notes)
 

@@ -3,8 +3,9 @@ import {
   featuredProjects,
   getAllProjectSlugs,
   getCaseStudyBySlug,
+  type ProjectSlug,
 } from "@/content/projects";
-import type { CaseStudy, ProjectCard, ProjectSlug } from "@/types/content";
+import type { CaseStudy, ProjectCard } from "@/types/content";
 
 export function getAllProjects(): ProjectCard[] {
   return allCaseStudies;

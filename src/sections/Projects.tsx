@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { homeContent } from "@/content/home";
 import type { ProjectCard } from "@/types/content";
 import { Badge } from "@/components/ui/Badge";
@@ -11,11 +13,14 @@ function ProjectCardItem({ project }: { project: ProjectCard }) {
 
   return (
     <article className="group flex flex-col gap-4">
-      <div
-        className="flex aspect-video items-center justify-center rounded border border-border bg-surface-elevated"
-        aria-hidden
-      >
-        <span className="font-mono text-xs text-muted">Screenshot</span>
+      <div className="overflow-hidden rounded border border-border bg-surface-elevated">
+        <Image
+          src={project.image}
+          alt={`${project.title} cover`}
+          width={800}
+          height={450}
+          className="aspect-video h-auto w-full object-cover"
+        />
       </div>
       <div className="flex flex-col gap-3">
         <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>

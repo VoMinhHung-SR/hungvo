@@ -1,12 +1,14 @@
-import type { CaseStudy, ProjectCard, ProjectSlug } from "@/types/content";
+import type { CaseStudy, ProjectCard } from "@/types/content";
 
 import { interviewFrogde } from "./interview-frogde";
 import { pharmacyManagement } from "./pharmacy-management";
 
-const caseStudies: Record<ProjectSlug, CaseStudy> = {
+const caseStudies = {
   "interview-frogde": interviewFrogde,
   "pharmacy-management": pharmacyManagement,
-};
+} as const satisfies Record<string, CaseStudy>;
+
+export type ProjectSlug = keyof typeof caseStudies;
 
 export const allCaseStudies: CaseStudy[] = Object.values(caseStudies);
 
@@ -15,6 +17,10 @@ export const featuredProjects: ProjectCard[] = allCaseStudies.filter(
 );
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
+  if (!(slug in caseStudies)) {
+    return undefined;
+  }
+
   return caseStudies[slug as ProjectSlug];
 }
 

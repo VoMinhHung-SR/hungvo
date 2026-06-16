@@ -1,5 +1,3 @@
-export type ProjectSlug = "interview-frogde" | "pharmacy-management";
-
 export type NavItemKind = "anchor" | "route";
 
 export interface NavItem {
@@ -40,7 +38,7 @@ export interface SiteConfig {
 }
 
 export interface ProjectCard {
-  slug: ProjectSlug;
+  slug: string;
   title: string;
   description: string;
   techStack: string[];
@@ -48,14 +46,54 @@ export interface ProjectCard {
   featured: boolean;
 }
 
+export interface CaseStudySeo {
+  publishedAt: string;
+  updatedAt: string;
+  ogImage: string;
+  keywords: string[];
+  title?: string;
+  description?: string;
+}
+
+export interface SectionBase {
+  id: string;
+  title: string;
+  eyebrow?: string;
+}
+
+export interface TextSection extends SectionBase {
+  type: "text";
+  paragraphs: string[];
+}
+
+export interface BulletSection extends SectionBase {
+  type: "bullets";
+  items: string[];
+}
+
+export interface MetricsSection extends SectionBase {
+  type: "metrics";
+  items: { label: string; value: string; note?: string }[];
+}
+
+export interface GallerySection extends SectionBase {
+  type: "gallery";
+  images: { src: string; alt: string; width: number; height: number }[];
+}
+
+export type CaseStudySection =
+  | TextSection
+  | BulletSection
+  | MetricsSection
+  | GallerySection;
+
 export interface CaseStudy extends ProjectCard {
-  overview: string;
-  problem: string;
-  solution: string;
-  architecture: string;
-  challenges: string[];
-  lessonsLearned: string[];
-  futureImprovements: string[];
+  role: string;
+  timeline: string;
+  heroImage: string;
+  heroImageAlt: string;
+  seo: CaseStudySeo;
+  sections: CaseStudySection[];
   liveUrl?: string;
   repoUrl?: string;
 }
