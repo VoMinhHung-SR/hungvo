@@ -1,6 +1,6 @@
 # Implementation Roadmap
 
-> Active cross-phase plan. Last updated: 2026-06-16.
+> Active cross-phase plan. Last updated: 2026-06-17.
 
 ## Phase 1 — Foundation (complete)
 
@@ -26,9 +26,11 @@ Case study article layout + section rendering from typed content. Article JSON-L
 
 Archived: [case-study-system.plan.md](../archive/2026-06/case-study-system.plan.md)
 
-## Phase 4 — Publishing (Blog + Technical Notes)
+## Phase 4 — Publishing (Blog + Technical Notes) (next)
 
-MDX pipeline (`content/blog/`, `content/notes/`). `/blog/[slug]`, `/notes/[slug]` routes. Extend sitemap registry.
+MDX pipeline with static registry (`src/content/blog/`, `src/content/notes/`). Index under `(site)` + article routes. Shared article page factory. Enable nav entries.
+
+Plan: [blog-system.plan.md](blog-system.plan.md)
 
 ## Phase 5 — Interactive Areas
 
