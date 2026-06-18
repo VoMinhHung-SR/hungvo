@@ -103,3 +103,22 @@ export interface ContentItemBase {
   title: string;
   description: string;
 }
+
+export interface PostSeo {
+  publishedAt: string;
+  updatedAt: string;
+  ogImage?: string;
+  keywords?: string[];
+}
+
+export interface PostMeta extends ContentItemBase {
+  seo: PostSeo;
+  tags?: string[];
+  draft?: boolean;
+}
+
+export type PostCollection = "blog" | "notes";
+
+export type PostEntry = PostMeta & {
+  Content: import("react").ComponentType;
+};

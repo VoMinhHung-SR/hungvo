@@ -1,0 +1,41 @@
+export const meta = {
+  slug: "react-server-components",
+  title: "React Server Components",
+  description:
+    "A short mental model for when to keep components on the server in Next.js.",
+  seo: {
+    publishedAt: "2026-06-10",
+    updatedAt: "2026-06-10",
+    keywords: ["React", "Server Components", "Next.js"],
+  },
+  tags: ["react", "nextjs"],
+};
+
+# React Server Components
+
+**Server Components** run on the server, ship no client JavaScript by default, and can read data directly during render.
+
+## Reach for server components when
+
+- The UI is mostly presentational.
+- Data fetching can happen next to the component.
+- You want to keep bundles small.
+
+## Reach for client components when
+
+- You need browser APIs, local state, or effects.
+- The UI is highly interactive (drag, realtime input, animations tied to input).
+
+## Rule of thumb
+
+Start on the server. Push interactivity to the leaf nodes that actually need it.
+
+```tsx
+// Server Component (default in app/)
+export default async function Page() {
+  const data = await getData();
+  return <Article data={data} />;
+}
+```
+
+Keep the boundary intentional — not every file needs `"use client"`.

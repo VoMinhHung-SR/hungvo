@@ -314,17 +314,17 @@ Verify `npm run build` after each step.
 
 ### Step 2 — Types, registries, validation
 
-- [ ] Extend `src/types/content.ts`
-- [ ] `src/content/blog/index.ts` + sample MDX
-- [ ] `src/content/notes/index.ts` + sample MDX
-- [ ] `validate-posts.ts` + `post-metadata.ts`
-- [ ] Extend `src/lib/content.ts`
+- [x] Extend `src/types/content.ts`
+- [x] `src/content/blog/index.ts` + sample MDX
+- [x] `src/content/notes/index.ts` + sample MDX
+- [x] `validate-posts.ts` + `post-metadata.ts`
+- [x] Extend `src/lib/content.ts`
 
 ### Step 3 — Layout + UI
 
-- [ ] Refactor `CaseStudyLayout` → `ArticleLayout` with `backHref`; update projects layout
-- [ ] `PostHeader`, `PostCard`, `CollectionIndexPage`
-- [ ] `createPostArticlePage` factory
+- [x] Refactor `CaseStudyLayout` → `ArticleLayout` with `backHref`; update projects layout
+- [x] `PostHeader`, `PostCard`, `CollectionIndexPage`
+- [x] `createPostArticlePage` factory
 
 ### Step 4 — Routes
 

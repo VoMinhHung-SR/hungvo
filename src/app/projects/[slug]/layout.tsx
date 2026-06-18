@@ -1,9 +1,13 @@
-import { CaseStudyLayout } from "@/components/layout/CaseStudyLayout";
+import { ArticleLayout } from "@/components/layout/ArticleLayout";
 
 export default function ProjectRouteLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <CaseStudyLayout>{children}</CaseStudyLayout>;
+  return (
+    <ArticleLayout backHref="/#projects" backLabel="Back to work">
+      {children}
+    </ArticleLayout>
+  );
 }

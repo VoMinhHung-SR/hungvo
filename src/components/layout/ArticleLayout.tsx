@@ -1,16 +1,22 @@
 import { InternalLink } from "@/components/ui/Link";
 import { Container } from "@/components/ui/Container";
 
-interface CaseStudyLayoutProps {
+interface ArticleLayoutProps {
   children: React.ReactNode;
+  backHref: string;
+  backLabel?: string;
 }
 
-export function CaseStudyLayout({ children }: CaseStudyLayoutProps) {
+export function ArticleLayout({
+  children,
+  backHref,
+  backLabel = "Back",
+}: ArticleLayoutProps) {
   return (
     <div className="min-h-full">
       <Container className="py-8">
-        <InternalLink href="/#projects" className="text-sm text-muted">
-          Back to work
+        <InternalLink href={backHref} className="text-sm text-muted">
+          {backLabel}
         </InternalLink>
       </Container>
       <Container
