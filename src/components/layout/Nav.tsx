@@ -1,5 +1,7 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+
 import { siteConfig } from "@/content/site.config";
 import { InternalLink } from "@/components/ui/Link";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -13,20 +15,23 @@ const sectionIds = siteConfig.homeNav
 function NavLink({
   item,
   activeSection,
+  pathname,
 }: {
   item: NavItem;
   activeSection: string | null;
+  pathname: string;
 }) {
-  const isRoute = item.kind === "route";
   const isActive =
-    item.sectionId !== undefined && activeSection === item.sectionId;
+    item.kind === "route"
+      ? pathname === item.href || pathname.startsWith(`${item.href}/`)
+      : item.sectionId !== undefined && activeSection === item.sectionId;
 
   return (
     <InternalLink
       href={item.href}
       className={cn(
         "group flex items-center gap-3 text-sm transition-colors",
-        isActive ? "text-accent" : isRoute ? "text-foreground" : "text-muted",
+        isActive ? "text-accent" : "text-muted",
       )}
     >
       <span
@@ -44,17 +49,23 @@ function NavLink({
 function NavList({
   items,
   activeSection,
+  pathname,
   className,
 }: {
   items: NavItem[];
   activeSection: string | null;
+  pathname: string;
   className?: string;
 }) {
   return (
     <ul className={cn("flex flex-col gap-3", className)}>
       {items.map((item) => (
         <li key={item.href}>
-          <NavLink item={item} activeSection={activeSection} />
+          <NavLink
+            item={item}
+            activeSection={activeSection}
+            pathname={pathname}
+          />
         </li>
       ))}
     </ul>
@@ -62,6 +73,7 @@ function NavList({
 }
 
 export function Nav() {
+  const pathname = usePathname();
   const activeSection = useActiveSection(sectionIds);
   const enabledSiteNav = siteConfig.siteNav.filter((item) => item.enabled);
 
@@ -70,20 +82,31 @@ export function Nav() {
       <NavList
         items={siteConfig.homeNav}
         activeSection={activeSection}
+        pathname={pathname}
         className="hidden lg:flex"
       />
       {enabledSiteNav.length > 0 && (
         <NavList
           items={enabledSiteNav}
           activeSection={activeSection}
+          pathname={pathname}
           className="mt-4 hidden border-t border-border pt-4 lg:flex"
         />
       )}
       <NavList
         items={siteConfig.homeNav}
         activeSection={activeSection}
+        pathname={pathname}
         className="flex lg:hidden"
       />
+      {enabledSiteNav.length > 0 && (
+        <NavList
+          items={enabledSiteNav}
+          activeSection={activeSection}
+          pathname={pathname}
+          className="mt-4 flex border-t border-border pt-4 lg:hidden"
+        />
+      )}
     </nav>
   );
 }

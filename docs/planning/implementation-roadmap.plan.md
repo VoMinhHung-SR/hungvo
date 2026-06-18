@@ -26,11 +26,17 @@ Case study article layout + section rendering from typed content. Article JSON-L
 
 Archived: [case-study-system.plan.md](../archive/2026-06/case-study-system.plan.md)
 
-## Phase 4 — Publishing (Blog + Technical Notes) (next)
+## Phase 4 — Publishing (Blog + Technical Notes) (complete)
 
-MDX pipeline with static registry (`src/content/blog/`, `src/content/notes/`). Index under `(site)` + article routes. Shared article page factory. Enable nav entries.
+MDX pipeline with static registry (`src/content/blog/`, `src/content/notes/`). Index under `(site)` + article routes. Shared article page factory. Nav entries enabled.
 
-Plan: [blog-system.plan.md](blog-system.plan.md)
+Archived: [blog-system.plan.md](../archive/2026-06/blog-system.plan.md)
+
+## Phase 4.5 — UI Polish (next)
+
+Site-wide design system pass: depth tokens, `ContentCard` modules, shell polish, homepage P0/P1, articles + publishing. **Keeps current dark + cyan theme.** Inspired by portfolio IA best practices — original execution.
+
+Plan: [ui-polish.plan.md](ui-polish.plan.md) (v2)
 
 ## Phase 5 — Interactive Areas
 
@@ -44,8 +50,8 @@ Image optimization, dynamic OG per page, Lighthouse pass. Analytics (optional).
 
 | Route | Status |
 |-------|--------|
-| `/blog` | `enabled: false` |
-| `/notes` | `enabled: false` |
+| `/blog` | `enabled: true` |
+| `/notes` | `enabled: true` |
 | `/lab` | `enabled: false` |
 
 Enable in `siteNav` when each route ships.

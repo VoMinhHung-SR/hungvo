@@ -1,6 +1,6 @@
 # Architecture Decisions
 
-> Permanent architecture documentation. Last updated: 2026-06-15.
+> Permanent architecture documentation. Last updated: 2026-06-17.
 
 ## ADR-001: Single content registry (no `data/` folder)
 
@@ -10,9 +10,9 @@
 
 ## ADR-002: Nested layouts by route concern
 
-**Decision:** Root layout (fonts/SEO only) → `(site)/layout` (SiteLayout with nav) → `projects/[slug]/layout` (CaseStudyLayout without side nav).
+**Decision:** Root layout (fonts/SEO only) → `(site)/layout` (SiteLayout with nav) → article slug layouts (`ArticleLayout` without side nav) for `/projects/[slug]`, `/blog/[slug]`, `/notes/[slug]`.
 
-**Rationale:** Case study pages need article reading width without homepage side navigation.
+**Rationale:** Article pages need reading width without homepage side navigation. Index pages (`/blog`, `/notes`) stay under `(site)` for full nav.
 
 ## ADR-003: Geist-only typography
 
@@ -46,6 +46,6 @@
 
 ## ADR-008: File-based content, no CMS
 
-**Decision:** TypeScript objects for config and structured pages. MDX deferred to Phase 4 for blog/notes.
+**Decision:** TypeScript objects for config and structured pages (projects). MDX with static registries for blog and notes (`src/content/blog/`, `src/content/notes/`).
 
-**Rationale:** Appropriate for a personal portfolio with 2–15 static pages.
+**Rationale:** Appropriate for a personal portfolio with a small, version-controlled content surface.

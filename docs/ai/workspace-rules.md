@@ -30,7 +30,7 @@ docs/
 **Examples:**
 - `docs/planning/home-sections.plan.md`
 - `docs/planning/case-studies.plan.md`
-- `docs/planning/blog-system.plan.md`
+- `docs/archive/2026-06/blog-system.plan.md`
 
 **Rules:**
 - Planning artifacts only

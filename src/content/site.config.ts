@@ -56,8 +56,8 @@ export const siteConfig: SiteConfig = {
   ],
   siteNav: [
     { label: "Home", href: "/", kind: "route", enabled: false },
-    { label: "Blog", href: "/blog", kind: "route", enabled: false },
-    { label: "Notes", href: "/notes", kind: "route", enabled: false },
+    { label: "Blog", href: "/blog", kind: "route", enabled: true },
+    { label: "Notes", href: "/notes", kind: "route", enabled: true },
     { label: "Lab", href: "/lab", kind: "route", enabled: false },
   ],
 };
