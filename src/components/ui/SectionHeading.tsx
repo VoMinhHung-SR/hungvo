@@ -5,6 +5,7 @@ interface SectionHeadingProps {
   className?: string;
   id?: string;
   index?: string;
+  showRule?: boolean;
 }
 
 export function SectionHeading({
@@ -12,21 +13,30 @@ export function SectionHeading({
   className,
   id,
   index,
+  showRule = true,
 }: SectionHeadingProps) {
   return (
-    <h2
-      id={id}
+    <div
       className={cn(
-        "flex items-baseline gap-4 text-section font-semibold tracking-tight text-foreground",
+        "mb-8 flex items-center gap-4",
+        showRule ? "w-full" : undefined,
         className,
       )}
     >
-      {index ? (
-        <span className="font-mono text-base font-normal text-muted">
-          {index}.
-        </span>
+      <h2
+        id={id}
+        className="flex shrink-0 items-baseline gap-3 whitespace-nowrap text-section font-semibold tracking-tight text-foreground"
+      >
+        {index ? (
+          <span className="font-mono text-base font-normal text-accent">
+            {index}.
+          </span>
+        ) : null}
+        <span>{children}</span>
+      </h2>
+      {showRule ? (
+        <span className="hidden h-px flex-1 bg-border sm:block" aria-hidden />
       ) : null}
-      <span>{children}</span>
-    </h2>
+    </div>
   );
 }

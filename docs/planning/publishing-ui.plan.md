@@ -1,6 +1,6 @@
 # Publishing UI Polish (Phase 4.5)
 
-> Active plan. Last updated: 2026-06-17.
+> **Superseded** — Most items shipped in [ui-polish v1](../archive/2026-06/ui-polish.plan.md). Remaining items (pretty-code, wider index) tracked in [consolidation-refactor.plan.md](consolidation-refactor.plan.md) Step 5.
 
 Visual polish for `/blog`, `/notes`, and article pages — align publishing UI with the quality bar set by homepage project cards and case study headers (Phase 2–3).
 

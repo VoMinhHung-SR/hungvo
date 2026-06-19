@@ -2,25 +2,66 @@ export const homeContent = {
   hero: {
     greeting: "Hi, my name is",
     name: "Hung Vo.",
-    tagline: "I build products for the web.",
+    tagline: "I build things for the web.",
     description:
-      "Frontend Developer focused on building modern web applications and AI-powered tools.",
+      "I'm a Frontend Developer who enjoys shipping modern web products — from polished interfaces to AI-powered tools that solve real problems.",
     cta: {
-      label: "View Projects",
+      label: "Check out my work!",
       href: "/#projects",
     },
   },
   about: {
-    title: "About",
+    title: "About Me",
     paragraphs: [
       "I'm a Frontend Developer who enjoys building clean, intentional interfaces with the React ecosystem — React, Next.js, and TypeScript are my daily tools.",
       "I care about product mindset as much as code quality: shipping useful tools, iterating from real feedback, and keeping UX simple.",
-      "I'm always learning — whether it's system design, AI applications, or sharpening fundamentals through continuous practice.",
+      "When I'm not coding, I'm usually exploring AI applications, system design, or sharpening fundamentals through continuous practice.",
+    ],
+    skills: [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Tailwind CSS",
+      "REST APIs",
+      "Git",
+    ],
+    profileImage: "/images/profile.jpg",
+    profileImageAlt: "Hung Vo",
+  },
+  experience: {
+    title: "Where I've Worked",
+    items: [
+      {
+        id: "freelance",
+        company: "Independent",
+        role: "Frontend Developer",
+        range: "2024 — Present",
+        bullets: [
+          "Build and ship client-facing web apps with React, Next.js, and TypeScript.",
+          "Collaborate on product scope, UI implementation, and performance tuning.",
+          "Prototype AI-assisted workflows and developer tooling.",
+        ],
+      },
+      {
+        id: "projects",
+        company: "Personal Projects",
+        role: "Full-stack Developer",
+        range: "2023 — Present",
+        bullets: [
+          "Designed and built Interview Frogde — an AI-powered interview practice assistant.",
+          "Developed a pharmacy management platform with React and Django.",
+          "Maintain open-source contributions and portfolio experiments on GitHub.",
+        ],
+        url: "https://github.com/VoMinhHung-SR",
+      },
     ],
   },
   projects: {
-    title: "Selected Work",
-    viewCaseStudy: "View Case Study",
+    title: "Some Things I've Built",
+    featuredLabel: "Featured Project",
+    archiveTitle: "Other Noteworthy Projects",
   },
   learning: {
     title: "Learning Journey",
@@ -33,6 +74,13 @@ export const homeContent = {
     ],
   },
   contact: {
-    title: "Let's build something useful.",
+    eyebrow: "What's Next?",
+    title: "Get In Touch",
+    description:
+      "I'm open to frontend roles, freelance collaborations, and interesting product ideas. Whether you have a question or just want to say hi, my inbox is always open.",
+    cta: {
+      label: "Say Hello",
+      href: "mailto:hello@hungvo.dev",
+    },
   },
 } as const;

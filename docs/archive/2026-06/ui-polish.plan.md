@@ -2,7 +2,7 @@
 
 > **Archived:** 2026-06-17 — Phase complete. Retained for historical reference.
 
-Site-wide visual upgrade: one cohesive design system across home, shell, case studies, and publishing. Structural ideas from Brittany Chiang v4 and Victor Eke — original execution only.
+Site-wide visual upgrade: one cohesive design system across home, shell, case studies, and publishing.
 
 ## Shipped
 

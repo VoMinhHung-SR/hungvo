@@ -1,6 +1,6 @@
 import { homeContent } from "@/content/home";
 import { ContributionGraph } from "@/components/learning/ContributionGraph";
-import { ContentCard } from "@/components/ui/ContentCard";
+import { ArrowList } from "@/components/ui/ArrowList";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -22,18 +22,10 @@ export async function Learning() {
 
   return (
     <Section id="learning">
-      <SectionHeading index="03" className="mb-8">
-        {title}
-      </SectionHeading>
-      <div className="max-w-xl">
+      <SectionHeading index="04">{title}</SectionHeading>
+      <div className="max-w-2xl">
         <SectionLabel>{focusLabel}</SectionLabel>
-        <ul className="grid gap-3 sm:grid-cols-2">
-          {items.map((item) => (
-            <li key={item}>
-              <ContentCard className="p-4 text-foreground">{item}</ContentCard>
-            </li>
-          ))}
-        </ul>
+        <ArrowList items={items} />
       </div>
 
       {lastYearContributions && years.length > 0 ? (

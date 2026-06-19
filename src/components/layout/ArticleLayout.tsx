@@ -1,5 +1,4 @@
 import { BackLink } from "@/components/ui/BackLink";
-import { Container } from "@/components/ui/Container";
 
 interface ArticleLayoutProps {
   children: React.ReactNode;
@@ -14,16 +13,8 @@ export function ArticleLayout({
 }: ArticleLayoutProps) {
   return (
     <div className="min-h-full">
-      <Container className="py-8">
-        <BackLink href={backHref} label={backLabel} />
-      </Container>
-      <Container
-        as="article"
-        id="main-content"
-        className="max-w-reading pb-16"
-      >
-        {children}
-      </Container>
+      <BackLink href={backHref} label={backLabel} />
+      <article className="mx-auto max-w-reading pt-8 pb-16">{children}</article>
     </div>
   );
 }

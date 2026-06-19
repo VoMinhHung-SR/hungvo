@@ -21,6 +21,10 @@ export function getFeaturedProjects(): ProjectCard[] {
   return featuredProjects;
 }
 
+export function getArchiveProjects(): ProjectCard[] {
+  return allCaseStudies.filter((project) => !project.featured);
+}
+
 export function getProjectBySlug(slug: string): CaseStudy | undefined {
   return getCaseStudyBySlug(slug);
 }

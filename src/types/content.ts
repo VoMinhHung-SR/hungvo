@@ -33,8 +33,18 @@ export interface SiteConfig {
   social: SiteSocial;
   github: SiteGithub;
   keywords: string[];
+  resumeUrl?: string;
   homeNav: NavItem[];
   siteNav: NavItem[];
+}
+
+export interface ExperienceEntry {
+  id: string;
+  company: string;
+  role: string;
+  range: string;
+  bullets: readonly string[];
+  url?: string;
 }
 
 export interface ProjectCard {

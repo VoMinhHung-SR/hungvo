@@ -1,48 +1,23 @@
-import { siteConfig } from "@/content/site.config";
 import { homeContent } from "@/content/home";
-import { ContentCard } from "@/components/ui/ContentCard";
-import { ExternalLink } from "@/components/ui/ExternalLink";
+import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const contactLinks = [
-  {
-    label: "Email",
-    href: `mailto:${siteConfig.author.email}`,
-    text: siteConfig.author.email,
-  },
-  {
-    label: "GitHub",
-    href: siteConfig.social.github,
-    text: "GitHub",
-  },
-  {
-    label: "LinkedIn",
-    href: siteConfig.social.linkedin,
-    text: "LinkedIn",
-  },
-] as const;
-
 export function Contact() {
-  const { title } = homeContent.contact;
+  const { eyebrow, title, description, cta } = homeContent.contact;
 
   return (
-    <Section id="contact">
-      <SectionHeading index="04" className="mb-8 max-w-lg">
-        {title}
-      </SectionHeading>
-      <ContentCard className="max-w-xl">
-        <div className="flex flex-col gap-5">
-          {contactLinks.map((link) => (
-            <div key={link.label} className="flex flex-col gap-1">
-              <span className="font-mono text-xs text-muted">{link.label}</span>
-              <ExternalLink href={link.href} className="text-lg">
-                {link.text}
-              </ExternalLink>
-            </div>
-          ))}
-        </div>
-      </ContentCard>
+    <Section id="contact" className="pb-24">
+      <div className="mx-auto flex max-w-xl flex-col items-center text-center">
+        <p className="mb-3 font-mono text-sm text-accent">{eyebrow}</p>
+        <SectionHeading index="05" showRule={false} className="mb-6 justify-center">
+          {title}
+        </SectionHeading>
+        <p className="mb-10 leading-relaxed text-muted">{description}</p>
+        <Button href={cta.href} variant="outline">
+          {cta.label}
+        </Button>
+      </div>
     </Section>
   );
 }

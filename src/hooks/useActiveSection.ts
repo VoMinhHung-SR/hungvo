@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const SCROLL_OFFSET = 120;
+const SCROLL_OFFSET = 100;
 const BOTTOM_THRESHOLD = 80;
 
 export function useActiveSection(sectionIds: string[]) {

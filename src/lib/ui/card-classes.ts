@@ -12,3 +12,7 @@ export const cardHover = cn(
 export const imageFrame = cn(
   "overflow-hidden rounded-[var(--radius-image)] bg-surface-elevated ring-1 ring-border",
 );
+
+export const surfacePanel = cn(
+  "rounded-lg border border-border bg-surface p-4 sm:p-6",
+);

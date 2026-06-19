@@ -12,7 +12,7 @@ Archived: [phase-1-foundation.plan.md](../archive/2026-06/phase-1-foundation.pla
 
 Hero, About, Projects, Learning, Contact. Nav active states. Project cards.
 
-Plan: [home-sections.plan.md](home-sections.plan.md)
+Plan: [home-sections.plan.md](home-sections.plan.md) (superseded)
 
 ## Phase 2.5 — Contribution Graph (complete)
 
@@ -32,11 +32,19 @@ MDX pipeline with static registry (`src/content/blog/`, `src/content/notes/`). I
 
 Archived: [blog-system.plan.md](../archive/2026-06/blog-system.plan.md)
 
-## Phase 4.5 — UI Polish (complete)
+## Phase 4.5 — Homepage Layout Refactor (complete)
 
-Site-wide design system: depth tokens, `ContentCard` modules, shell polish, homepage P0/P1, articles + publishing. Keeps current dark + cyan theme.
+Shift from card-heavy homepage to top-nav marketing layout: experience tabs, featured projects, full-width header. Cyan palette unchanged.
 
-Archived: [ui-polish.plan.md](../archive/2026-06/ui-polish.plan.md)
+Archived: [homepage-layout-refactor.plan.md](../archive/2026-06/homepage-layout-refactor.plan.md)
+
+Previous card-module polish: [ui-polish.plan.md](../archive/2026-06/ui-polish.plan.md)
+
+## Phase 4.6 — Consolidation & Cleanup (next)
+
+Unify site shell across all routes, consolidate drifted styles, prune unused config/CSS, archive stale plans.
+
+Plan: [consolidation-refactor.plan.md](consolidation-refactor.plan.md)
 
 ## Phase 5 — Interactive Areas
 
