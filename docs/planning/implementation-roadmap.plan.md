@@ -32,11 +32,11 @@ MDX pipeline with static registry (`src/content/blog/`, `src/content/notes/`). I
 
 Archived: [blog-system.plan.md](../archive/2026-06/blog-system.plan.md)
 
-## Phase 4.5 — UI Polish (next)
+## Phase 4.5 — UI Polish (complete)
 
-Site-wide design system pass: depth tokens, `ContentCard` modules, shell polish, homepage P0/P1, articles + publishing. **Keeps current dark + cyan theme.** Inspired by portfolio IA best practices — original execution.
+Site-wide design system: depth tokens, `ContentCard` modules, shell polish, homepage P0/P1, articles + publishing. Keeps current dark + cyan theme.
 
-Plan: [ui-polish.plan.md](ui-polish.plan.md) (v2)
+Archived: [ui-polish.plan.md](../archive/2026-06/ui-polish.plan.md)
 
 ## Phase 5 — Interactive Areas
 
@@ -50,8 +50,8 @@ Image optimization, dynamic OG per page, Lighthouse pass. Analytics (optional).
 
 | Route | Status |
 |-------|--------|
-| `/blog` | `enabled: true` |
-| `/notes` | `enabled: true` |
+| `/blog` | `enabled: false` (routes live; nav hidden until content ready) |
+| `/notes` | `enabled: false` (routes live; nav hidden until content ready) |
 | `/lab` | `enabled: false` |
 
 Enable in `siteNav` when each route ships.

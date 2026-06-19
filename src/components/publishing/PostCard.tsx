@@ -1,4 +1,8 @@
+import { Badge } from "@/components/ui/Badge";
+import { ContentCard } from "@/components/ui/ContentCard";
 import { InternalLink } from "@/components/ui/Link";
+import { MetaRow } from "@/components/ui/MetaRow";
+import { formatPostDate } from "@/lib/publishing/format-post-date";
 import type { PostCollection, PostMeta } from "@/types/content";
 
 interface PostCardProps {
@@ -6,29 +10,37 @@ interface PostCardProps {
   collection: PostCollection;
 }
 
-function formatPostDate(isoDate: string) {
-  return new Intl.DateTimeFormat("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  }).format(new Date(isoDate));
-}
-
 export function PostCard({ post, collection }: PostCardProps) {
+  const tags = post.tags?.slice(0, 3) ?? [];
+
   return (
-    <article className="flex flex-col gap-3 border-b border-border pb-8 last:border-b-0 last:pb-0">
-      <InternalLink
-        href={`/${collection}/${post.slug}`}
-        className="group w-fit"
-      >
-        <h2 className="text-xl font-semibold text-foreground transition-colors group-hover:text-accent">
+    <ContentCard as="article" hover className="group flex flex-col gap-3">
+      <InternalLink href={`/${collection}/${post.slug}`} className="w-fit">
+        <h2 className="text-xl font-semibold text-foreground transition-colors duration-150 group-hover:text-accent">
           {post.title}
         </h2>
       </InternalLink>
       <p className="text-muted">{post.description}</p>
-      <time className="text-sm text-muted" dateTime={post.seo.publishedAt}>
-        {formatPostDate(post.seo.publishedAt)}
-      </time>
-    </article>
+      <MetaRow
+        items={[
+          {
+            value: (
+              <time dateTime={post.seo.publishedAt}>
+                {formatPostDate(post.seo.publishedAt)}
+              </time>
+            ),
+          },
+        ]}
+      />
+      {tags.length > 0 ? (
+        <ul className="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li key={tag}>
+              <Badge>{tag}</Badge>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </ContentCard>
   );
 }

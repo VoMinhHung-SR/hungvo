@@ -30,13 +30,13 @@ function NavLink({
     <InternalLink
       href={item.href}
       className={cn(
-        "group flex items-center gap-3 text-sm transition-colors",
+        "group flex items-center gap-3 text-sm transition-colors duration-150",
         isActive ? "text-accent" : "text-muted",
       )}
     >
       <span
         className={cn(
-          "h-px w-8 bg-muted transition-all",
+          "h-px w-8 bg-muted transition-all duration-150",
           isActive && "w-12 bg-accent",
         )}
         aria-hidden

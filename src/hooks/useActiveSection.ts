@@ -2,39 +2,59 @@
 
 import { useEffect, useState } from "react";
 
+const SCROLL_OFFSET = 120;
+const BOTTOM_THRESHOLD = 80;
+
 export function useActiveSection(sectionIds: string[]) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((element): element is HTMLElement => element !== null);
+    const sections = sectionIds
+      .map((id) => {
+        const element = document.getElementById(id);
+        return element ? { id, element } : null;
+      })
+      .filter(
+        (section): section is { id: string; element: HTMLElement } =>
+          section !== null,
+      );
 
-    if (elements.length === 0) {
+    if (sections.length === 0) {
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const updateActiveSection = () => {
+      const scrollY = window.scrollY;
+      const viewportBottom = scrollY + window.innerHeight;
+      const pageBottom = document.documentElement.scrollHeight;
 
-        if (visible[0]) {
-          setActiveSection(visible[0].target.id);
+      if (pageBottom - viewportBottom < BOTTOM_THRESHOLD) {
+        setActiveSection(sections[sections.length - 1].id);
+        return;
+      }
+
+      let current: string | null = null;
+      for (const { id, element } of sections) {
+        const top = element.getBoundingClientRect().top + scrollY;
+        if (top - SCROLL_OFFSET <= scrollY) {
+          current = id;
         }
-      },
-      {
-        rootMargin: "-20% 0px -60% 0px",
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-      },
-    );
+      }
 
-    for (const element of elements) {
-      observer.observe(element);
-    }
+      setActiveSection(current);
+    };
 
-    return () => observer.disconnect();
+    updateActiveSection();
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    window.addEventListener("hashchange", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("hashchange", updateActiveSection);
+    };
   }, [sectionIds]);
 
   return activeSection;

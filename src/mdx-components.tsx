@@ -87,7 +87,7 @@ function MdxPre({
   return (
     <pre
       className={cn(
-        "overflow-x-auto rounded-lg border border-border bg-surface p-4 font-mono text-sm text-foreground",
+        "overflow-x-auto rounded-lg border border-border bg-surface-elevated p-4 font-mono text-sm leading-relaxed text-foreground",
         className,
       )}
       {...props}

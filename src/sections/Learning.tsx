@@ -1,7 +1,9 @@
 import { homeContent } from "@/content/home";
 import { ContributionGraph } from "@/components/learning/ContributionGraph";
+import { ContentCard } from "@/components/ui/ContentCard";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
   CONTRIBUTION_LAST_YEAR_PARAM,
   getAvailableYears,
@@ -20,16 +22,15 @@ export async function Learning() {
 
   return (
     <Section id="learning">
-      <SectionHeading className="mb-8">{title}</SectionHeading>
+      <SectionHeading index="03" className="mb-8">
+        {title}
+      </SectionHeading>
       <div className="max-w-xl">
-        <h3 className="mb-4 font-mono text-sm text-accent">{focusLabel}</h3>
+        <SectionLabel>{focusLabel}</SectionLabel>
         <ul className="grid gap-3 sm:grid-cols-2">
           {items.map((item) => (
-            <li
-              key={item}
-              className="rounded border border-border bg-surface px-4 py-3 text-foreground"
-            >
-              {item}
+            <li key={item}>
+              <ContentCard className="p-4 text-foreground">{item}</ContentCard>
             </li>
           ))}
         </ul>

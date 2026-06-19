@@ -1,4 +1,7 @@
 import { Badge } from "@/components/ui/Badge";
+import { MetaRow } from "@/components/ui/MetaRow";
+import { PageIntro } from "@/components/ui/PageIntro";
+import { formatPostDate } from "@/lib/publishing/format-post-date";
 import type { PostMeta } from "@/types/content";
 
 interface PostHeaderProps {
@@ -6,26 +9,24 @@ interface PostHeaderProps {
   eyebrow: string;
 }
 
-function formatPostDate(isoDate: string) {
-  return new Intl.DateTimeFormat("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  }).format(new Date(isoDate));
-}
-
 export function PostHeader({ post, eyebrow }: PostHeaderProps) {
   return (
-    <header className="mb-10 flex flex-col gap-4 border-b border-border pb-8">
-      <p className="font-mono text-sm text-accent">{eyebrow}</p>
-      <h1 className="text-section text-foreground">{post.title}</h1>
-      <p className="text-lg text-muted">{post.description}</p>
-      <time
-        className="text-sm text-muted"
-        dateTime={post.seo.publishedAt}
-      >
-        {formatPostDate(post.seo.publishedAt)}
-      </time>
+    <PageIntro
+      eyebrow={eyebrow}
+      title={post.title}
+      description={post.description}
+    >
+      <MetaRow
+        items={[
+          {
+            value: (
+              <time dateTime={post.seo.publishedAt}>
+                {formatPostDate(post.seo.publishedAt)}
+              </time>
+            ),
+          },
+        ]}
+      />
       {post.tags?.length ? (
         <ul className="flex flex-wrap gap-2">
           {post.tags.map((tag) => (
@@ -35,6 +36,6 @@ export function PostHeader({ post, eyebrow }: PostHeaderProps) {
           ))}
         </ul>
       ) : null}
-    </header>
+    </PageIntro>
   );
 }

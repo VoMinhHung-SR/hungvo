@@ -36,6 +36,13 @@
   --contrib-level-2: color-mix(in srgb, var(--accent) 52%, #0f172a);
   --contrib-level-3: color-mix(in srgb, var(--accent) 78%, #0f172a);
   --contrib-level-4: var(--accent);
+
+  --radius-card: 0.5rem;
+  --radius-image: 0.5rem;
+  --glow-accent: 0 0 28px color-mix(in srgb, var(--accent) 16%, transparent);
+  --shadow-card: 0 12px 40px rgb(0 0 0 / 0.4);
+  --shadow-card-hover: 0 16px 48px rgb(0 0 0 / 0.5);
+  --transition-ui: 150ms ease;
 }
 
 @theme inline {
@@ -61,6 +68,9 @@
   --text-hero: var(--text-hero);
   --text-section: var(--text-section);
   --text-body: var(--text-body);
+
+  --radius-lg: var(--radius-card);
+  --shadow-card: var(--shadow-card);
 }
 
 html {
@@ -103,6 +113,10 @@ body::before {
   font-size: var(--text-section);
   line-height: var(--leading-heading);
   text-wrap: balance;
+}
+
+.text-hero-glow {
+  text-shadow: 0 0 48px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
 .link-accent {

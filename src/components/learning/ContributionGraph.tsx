@@ -5,6 +5,8 @@ import { useMemo, useState, useTransition } from "react";
 import { ContributionGrid } from "@/components/learning/ContributionGrid";
 import { ContributionLegend } from "@/components/learning/ContributionLegend";
 import { YearSelector } from "@/components/learning/YearSelector";
+import { ContentCard } from "@/components/ui/ContentCard";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 import { getContributionCount } from "@/lib/github/contributions";
 import {
   getLocalToday,
@@ -67,9 +69,9 @@ export function ContributionGraph({ years, initialData }: ContributionGraphProps
 
   return (
     <div className="mt-12">
-      <h3 className="mb-4 font-mono text-sm text-accent">Contribution Graph</h3>
+      <SectionLabel>Contribution Graph</SectionLabel>
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
-        <div className="min-w-0 flex-1 rounded-lg border border-border bg-surface p-4 sm:p-6">
+        <ContentCard className="min-w-0 flex-1">
           <div className={isPending ? "opacity-60" : undefined}>
             <ContributionGrid
               contributions={displayContributions}
@@ -89,7 +91,7 @@ export function ContributionGraph({ years, initialData }: ContributionGraphProps
           </div>
 
           {error && <p className="mt-3 text-sm text-muted">{error}</p>}
-        </div>
+        </ContentCard>
 
         <YearSelector
           years={years}

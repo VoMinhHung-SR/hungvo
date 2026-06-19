@@ -1,4 +1,4 @@
-import { InternalLink } from "@/components/ui/Link";
+import { BackLink } from "@/components/ui/BackLink";
 import { Container } from "@/components/ui/Container";
 
 interface ArticleLayoutProps {
@@ -15,9 +15,7 @@ export function ArticleLayout({
   return (
     <div className="min-h-full">
       <Container className="py-8">
-        <InternalLink href={backHref} className="text-sm text-muted">
-          {backLabel}
-        </InternalLink>
+        <BackLink href={backHref} label={backLabel} />
       </Container>
       <Container
         as="article"
