@@ -106,7 +106,7 @@ Dark Mode First
 Colors:
 
 Background:
-#0A192F (inspired by Brittany)
+#0a0a0a
 
 Secondary Background:
 #112240

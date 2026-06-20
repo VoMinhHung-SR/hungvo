@@ -1,59 +1,42 @@
-import Image from "next/image";
-
 import { homeContent } from "@/content/home";
-import type { ProjectCard } from "@/types/content";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import {
+  FeaturedProject,
+  ProjectArchiveCard,
+} from "@/components/projects/FeaturedProject";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { getFeaturedProjects } from "@/lib/content";
-
-function ProjectCardItem({ project }: { project: ProjectCard }) {
-  const { viewCaseStudy } = homeContent.projects;
-
-  return (
-    <article className="group flex flex-col gap-4">
-      <div className="overflow-hidden rounded border border-border bg-surface-elevated">
-        <Image
-          src={project.image}
-          alt={`${project.title} cover`}
-          width={800}
-          height={450}
-          className="aspect-video h-auto w-full object-cover"
-        />
-      </div>
-      <div className="flex flex-col gap-3">
-        <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
-        <p className="text-muted">{project.description}</p>
-        <ul className="flex flex-wrap gap-2">
-          {project.techStack.map((tech) => (
-            <li key={tech}>
-              <Badge>{tech}</Badge>
-            </li>
-          ))}
-        </ul>
-        <div>
-          <Button href={`/projects/${project.slug}`} variant="ghost">
-            {viewCaseStudy} →
-          </Button>
-        </div>
-      </div>
-    </article>
-  );
-}
+import { getArchiveProjects, getFeaturedProjects } from "@/lib/content";
 
 export function Projects() {
-  const projects = getFeaturedProjects();
-  const { title } = homeContent.projects;
+  const featured = getFeaturedProjects();
+  const archive = getArchiveProjects();
+  const { title, archiveTitle } = homeContent.projects;
 
   return (
     <Section id="projects">
-      <SectionHeading className="mb-12">{title}</SectionHeading>
-      <div className="grid gap-12 md:grid-cols-2">
-        {projects.map((project) => (
-          <ProjectCardItem key={project.slug} project={project} />
+      <SectionHeading index="03">{title}</SectionHeading>
+      <div className="flex flex-col gap-24">
+        {featured.map((project, index) => (
+          <FeaturedProject
+            key={project.slug}
+            project={project}
+            reversed={index % 2 === 1}
+          />
         ))}
       </div>
+
+      {archive.length > 0 ? (
+        <div className="mt-24">
+          <h3 className="mb-12 text-center text-2xl font-semibold text-foreground">
+            {archiveTitle}
+          </h3>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {archive.map((project) => (
+              <ProjectArchiveCard key={project.slug} project={project} />
+            ))}
+          </div>
+        </div>
+      ) : null}
     </Section>
   );
 }

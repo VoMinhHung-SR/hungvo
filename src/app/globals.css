@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #0a0a0a;
@@ -14,10 +15,11 @@
   --width-content: 64rem;
   --width-reading: 48rem;
   --spacing-section: 6rem;
-  --spacing-nav-offset: 5rem;
+  --spacing-nav-offset: 5.5rem;
 
   --text-hero: clamp(3rem, 8vw, 6rem);
-  --text-section: clamp(2.5rem, 5vw, 3.5rem);
+  --text-section: clamp(2rem, 4vw, 2.75rem);
+  --text-tagline: clamp(2rem, 5vw, 4.5rem);
   --text-body: 1.0625rem;
   --leading-body: 1.6;
   --leading-heading: 1.1;
@@ -35,6 +37,20 @@
   --contrib-level-2: color-mix(in srgb, var(--accent) 52%, #0f172a);
   --contrib-level-3: color-mix(in srgb, var(--accent) 78%, #0f172a);
   --contrib-level-4: var(--accent);
+
+  --radius-card: 0.5rem;
+  --radius-image: 0.5rem;
+  --glow-accent: 0 0 28px color-mix(in srgb, var(--accent) 16%, transparent);
+  --shadow-card: 0 12px 40px rgb(0 0 0 / 0.4);
+  --shadow-card-hover: 0 16px 48px rgb(0 0 0 / 0.5);
+  --transition-ui: 150ms ease;
+
+  /* Lift + solid offset shadow (outline button interaction) */
+  --lift-shadow-x: 3px;
+  --lift-shadow-y: 3px;
+  --lift-translate: 4px;
+  --shadow-lift: var(--lift-shadow-x) var(--lift-shadow-y) 0 0 var(--accent);
+  --transition-lift: var(--transition-ui);
 }
 
 @theme inline {
@@ -59,7 +75,11 @@
 
   --text-hero: var(--text-hero);
   --text-section: var(--text-section);
+  --text-tagline: var(--text-tagline);
   --text-body: var(--text-body);
+
+  --radius-lg: var(--radius-card);
+  --shadow-card: var(--shadow-card);
 }
 
 html {
@@ -102,6 +122,36 @@ body::before {
   font-size: var(--text-section);
   line-height: var(--leading-heading);
   text-wrap: balance;
+}
+
+.text-tagline {
+  font-size: var(--text-tagline);
+  line-height: var(--leading-heading);
+  text-wrap: balance;
+}
+
+.text-hero-glow {
+  text-shadow: 0 0 48px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+/* Solid shadow lift — buttons, outline CTAs */
+.ui-lift {
+  transition:
+    transform var(--transition-lift),
+    box-shadow var(--transition-lift),
+    color var(--transition-lift),
+    background-color var(--transition-lift),
+    border-color var(--transition-lift);
+}
+
+.ui-lift:hover,
+.ui-lift:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-lift);
+  transform: translate(
+    calc(-1 * var(--lift-translate)),
+    calc(-1 * var(--lift-translate))
+  );
 }
 
 .link-accent {

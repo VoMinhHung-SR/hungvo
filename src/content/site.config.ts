@@ -28,12 +28,19 @@ export const siteConfig: SiteConfig = {
     "TypeScript",
     "Web Development",
   ],
+  resumeUrl: "/resume.pdf",
   homeNav: [
     {
       label: "About",
       href: "/#about",
       kind: "anchor",
       sectionId: "about",
+    },
+    {
+      label: "Experience",
+      href: "/#experience",
+      kind: "anchor",
+      sectionId: "experience",
     },
     {
       label: "Work",

@@ -1,6 +1,6 @@
 # Home Sections UI
 
-> Active plan. Last updated: 2026-06-15.
+> **Superseded** by [consolidation-refactor.plan.md](consolidation-refactor.plan.md) and [homepage layout refactor](../archive/2026-06/homepage-layout-refactor.plan.md). Homepage now has 6 sections + Experience; shell is top nav.
 
 ## Scope
 

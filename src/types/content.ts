@@ -33,8 +33,18 @@ export interface SiteConfig {
   social: SiteSocial;
   github: SiteGithub;
   keywords: string[];
+  resumeUrl?: string;
   homeNav: NavItem[];
   siteNav: NavItem[];
+}
+
+export interface ExperienceEntry {
+  id: string;
+  company: string;
+  role: string;
+  range: string;
+  bullets: readonly string[];
+  url?: string;
 }
 
 export interface ProjectCard {
@@ -103,3 +113,22 @@ export interface ContentItemBase {
   title: string;
   description: string;
 }
+
+export interface PostSeo {
+  publishedAt: string;
+  updatedAt: string;
+  ogImage?: string;
+  keywords?: string[];
+}
+
+export interface PostMeta extends ContentItemBase {
+  seo: PostSeo;
+  tags?: string[];
+  draft?: boolean;
+}
+
+export type PostCollection = "blog" | "notes";
+
+export type PostEntry = PostMeta & {
+  Content: import("react").ComponentType;
+};

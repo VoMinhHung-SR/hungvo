@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { imageFrame } from "@/lib/ui/card-classes";
 import type { GallerySection as GallerySectionData } from "@/types/content";
 
 interface GallerySectionProps {
@@ -15,10 +16,7 @@ export function GallerySection({ section }: GallerySectionProps) {
       <h2 className="text-2xl font-semibold text-foreground">{section.title}</h2>
       <div className="flex flex-col gap-6">
         {section.images.map((image) => (
-          <figure
-            key={image.src}
-            className="overflow-hidden rounded-lg border border-border bg-surface"
-          >
+          <figure key={image.src} className={imageFrame}>
             <Image
               src={image.src}
               alt={image.alt}

@@ -1,0 +1,36 @@
+export const meta = {
+  slug: "building-with-nextjs",
+  title: "Building with Next.js",
+  description:
+    "Why I reach for the App Router when shipping product-focused frontend work.",
+  seo: {
+    publishedAt: "2026-06-01",
+    updatedAt: "2026-06-01",
+    keywords: ["Next.js", "React", "App Router"],
+  },
+  tags: ["nextjs", "react"],
+};
+
+# Building with Next.js
+
+For product work, I default to **Next.js** when I need a balance of developer experience, performance, and long-term maintainability.
+
+## What I optimize for
+
+- **Colocation** — routes, layouts, and UI live close together.
+- **Static generation** — portfolio pages, case studies, and articles ship as HTML.
+- **Progressive enhancement** — server-first rendering with client islands only where needed.
+
+## App Router in practice
+
+The App Router fits how I think about UI boundaries:
+
+1. Layout shells handle shared chrome and reading width.
+2. Page components stay thin and delegate to content registries.
+3. Metadata and structured data are generated at build time.
+
+That keeps the codebase predictable as the site grows from a portfolio into publishing and interactive areas.
+
+## Closing thought
+
+Framework choice is never purely technical. Next.js earns its place on my projects when the team values fast iteration **and** a clear path to production-grade SEO.

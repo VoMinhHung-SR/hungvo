@@ -4,9 +4,9 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-surface">
-      <p className="text-sm text-muted">
-        © {year} {siteConfig.author.name}
+    <footer className="py-8 text-center">
+      <p className="font-mono text-xs text-muted">
+        Designed &amp; Built by {siteConfig.author.name} · © {year}
       </p>
     </footer>
   );
