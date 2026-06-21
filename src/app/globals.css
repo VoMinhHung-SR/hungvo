@@ -45,7 +45,7 @@
   --shadow-card-hover: 0 16px 48px rgb(0 0 0 / 0.5);
   --transition-ui: 150ms ease;
 
-  /* Lift + solid offset shadow (outline button interaction) */
+  /* ui-lift: solid cyan offset shadow on outline CTAs (see .ui-lift below) */
   --lift-shadow-x: 3px;
   --lift-shadow-y: 3px;
   --lift-translate: 4px;
@@ -130,11 +130,11 @@ body::before {
   text-wrap: balance;
 }
 
-.text-hero-glow {
-  text-shadow: 0 0 48px color-mix(in srgb, var(--accent) 22%, transparent);
-}
-
-/* Solid shadow lift — buttons, outline CTAs */
+/*
+ * ui-lift — solid offset shadow on hover/focus-visible
+ * Tokens: --lift-shadow-x/y, --lift-translate, --shadow-lift, --transition-lift
+ * Apply via uiLift from lib/ui/interaction-classes.ts (outline Button, Header Resume)
+ */
 .ui-lift {
   transition:
     transform var(--transition-lift),
@@ -247,14 +247,14 @@ body::before {
   border-top-color: var(--border);
 }
 
-.group:hover .contrib-tooltip {
-  display: block;
+@media (hover: hover) and (pointer: fine) {
+  .contrib-cell-group:hover .contrib-tooltip {
+    display: block;
+  }
 }
 
 .contrib-calendar-months {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: var(--contrib-cell-size);
   gap: var(--contrib-cell-gap);
   margin-bottom: 6px;
   height: 16px;
@@ -262,10 +262,21 @@ body::before {
   line-height: 1;
 }
 
+.contrib-calendar-month-cell {
+  overflow: visible;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.contrib-calendar-month-label--reserved {
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
 .contrib-calendar-grid {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(7, var(--contrib-cell-size));
-  grid-auto-columns: var(--contrib-cell-size);
   gap: var(--contrib-cell-gap);
 }

@@ -6,6 +6,7 @@ interface SectionHeadingProps {
   id?: string;
   index?: string;
   showRule?: boolean;
+  as?: "h1" | "h2";
 }
 
 export function SectionHeading({
@@ -14,6 +15,7 @@ export function SectionHeading({
   id,
   index,
   showRule = true,
+  as: Heading = "h2",
 }: SectionHeadingProps) {
   return (
     <div
@@ -23,7 +25,7 @@ export function SectionHeading({
         className,
       )}
     >
-      <h2
+      <Heading
         id={id}
         className="flex shrink-0 items-baseline gap-3 whitespace-nowrap text-section font-semibold tracking-tight text-foreground"
       >
@@ -33,7 +35,7 @@ export function SectionHeading({
           </span>
         ) : null}
         <span>{children}</span>
-      </h2>
+      </Heading>
       {showRule ? (
         <span className="hidden h-px flex-1 bg-border sm:block" aria-hidden />
       ) : null}

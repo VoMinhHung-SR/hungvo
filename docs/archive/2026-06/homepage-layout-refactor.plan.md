@@ -44,12 +44,13 @@ Restructured portfolio IA and homepage: top navigation, marketing-style sections
 
 ## Deferred (addressed in Phase 4.6)
 
-- Profile photo at `/images/profile.jpg`
+- Profile photo at `/images/profile.jpg` — `ProfileFrame` wired; initials fallback until asset added
 - Mobile visual QA at 390px
-- Shell on article slug routes
+- Shell on article slug routes — ✅ unified under `SiteLayout`
+- Header Resume button — ✅ shipped
 
 ## Related
 
 - [Implementation roadmap](../../planning/implementation-roadmap.plan.md)
 - [UI polish v1](ui-polish.plan.md)
-- [Consolidation refactor](../../planning/consolidation-refactor.plan.md)
+- [Consolidation refactor](consolidation-refactor.plan.md)

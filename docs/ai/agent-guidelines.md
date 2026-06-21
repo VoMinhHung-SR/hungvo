@@ -47,11 +47,11 @@ Before creating a new file, check whether an existing document in the correct fo
 
 ---
 
-## Phase 2 readiness
+## Phase readiness
 
-Phase 1 foundation is complete. Do **not** begin Phase 2 (home section UI) without explicit user approval.
+Phase 4.6 consolidation is complete. See [implementation roadmap](../planning/implementation-roadmap.plan.md) for Phase 5+.
 
-Active plan: [home-sections.plan.md](../planning/home-sections.plan.md)
+Archived: [consolidation-refactor.plan.md](../archive/2026-06/consolidation-refactor.plan.md)
 
 ---
 

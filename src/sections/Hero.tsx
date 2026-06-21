@@ -16,7 +16,7 @@ export function Hero() {
       </p>
       <p className="mt-6 max-w-xl leading-relaxed text-muted">{description}</p>
       <div className="mt-12">
-        <Button href={cta.href} variant="outline">
+        <Button href={cta.href}>
           {cta.label}
         </Button>
       </div>

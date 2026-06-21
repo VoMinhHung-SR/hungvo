@@ -1,4 +1,4 @@
-import { ContentCard } from "@/components/ui/ContentCard";
+import { metricCell } from "@/lib/ui/card-classes";
 import type { MetricsSection as MetricsSectionData } from "@/types/content";
 
 interface MetricsSectionProps {
@@ -14,7 +14,7 @@ export function MetricsSection({ section }: MetricsSectionProps) {
       <h2 className="text-2xl font-semibold text-foreground">{section.title}</h2>
       <div className="grid gap-4 sm:grid-cols-3">
         {section.items.map((item) => (
-          <ContentCard key={item.label} className="p-4">
+          <div key={item.label} className={metricCell}>
             <p className="font-mono text-xs text-muted">{item.label}</p>
             <p className="mt-1 text-lg font-semibold text-foreground">
               {item.value}
@@ -22,7 +22,7 @@ export function MetricsSection({ section }: MetricsSectionProps) {
             {item.note ? (
               <p className="mt-1 text-sm text-muted">{item.note}</p>
             ) : null}
-          </ContentCard>
+          </div>
         ))}
       </div>
     </section>

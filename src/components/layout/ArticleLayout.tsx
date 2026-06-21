@@ -13,7 +13,9 @@ export function ArticleLayout({
 }: ArticleLayoutProps) {
   return (
     <div className="min-h-full">
-      <BackLink href={backHref} label={backLabel} />
+      <div className="scroll-mt-nav">
+        <BackLink href={backHref} label={backLabel} />
+      </div>
       <article className="mx-auto max-w-reading pt-8 pb-16">{children}</article>
     </div>
   );

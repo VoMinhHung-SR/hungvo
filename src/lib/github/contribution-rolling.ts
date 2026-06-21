@@ -15,7 +15,9 @@ export function getLocalToday(): Date {
 export function getRollingDateRange(localToday = getLocalToday()) {
   const end = new Date(localToday);
   const start = new Date(localToday);
-  start.setDate(start.getDate() - 365);
+  // GitHub rolling window: 365 days inclusive ending today
+  // (e.g. Jun 22, Y-1 → Jun 21, Y — not the same calendar day twice)
+  start.setDate(start.getDate() - 364);
 
   return { start, end };
 }

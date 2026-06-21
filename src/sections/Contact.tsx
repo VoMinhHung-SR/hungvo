@@ -14,7 +14,7 @@ export function Contact() {
           {title}
         </SectionHeading>
         <p className="mb-10 leading-relaxed text-muted">{description}</p>
-        <Button href={cta.href} variant="outline">
+        <Button href={cta.href}>
           {cta.label}
         </Button>
       </div>

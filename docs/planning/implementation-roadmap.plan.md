@@ -1,6 +1,6 @@
 # Implementation Roadmap
 
-> Active cross-phase plan. Last updated: 2026-06-17.
+> Active cross-phase plan. Last updated: 2026-06-20.
 
 ## Phase 1 — Foundation (complete)
 
@@ -12,7 +12,7 @@ Archived: [phase-1-foundation.plan.md](../archive/2026-06/phase-1-foundation.pla
 
 Hero, About, Projects, Learning, Contact. Nav active states. Project cards.
 
-Plan: [home-sections.plan.md](home-sections.plan.md) (superseded)
+Archived: [home-sections.plan.md](../archive/2026-06/home-sections.plan.md)
 
 ## Phase 2.5 — Contribution Graph (complete)
 
@@ -40,11 +40,11 @@ Archived: [homepage-layout-refactor.plan.md](../archive/2026-06/homepage-layout-
 
 Previous card-module polish: [ui-polish.plan.md](../archive/2026-06/ui-polish.plan.md)
 
-## Phase 4.6 — Consolidation & Cleanup (next)
+## Phase 4.6 — Consolidation & Cleanup (complete)
 
-Unify site shell across all routes, consolidate drifted styles, prune unused config/CSS, archive stale plans.
+Unified site shell across all routes, consolidated drifted styles, pruned unused CSS/Button API, aligned publishing and case study surfaces, archived stale plans.
 
-Plan: [consolidation-refactor.plan.md](consolidation-refactor.plan.md)
+Archived: [consolidation-refactor.plan.md](../archive/2026-06/consolidation-refactor.plan.md)
 
 ## Phase 5 — Interactive Areas
 
@@ -52,7 +52,7 @@ AI Lab (`/lab`). LeetCode Dashboard. Framer Motion polish (sparingly).
 
 ## Phase 6 — Performance + SEO Hardening
 
-Image optimization, dynamic OG per page, Lighthouse pass. Analytics (optional).
+Image optimization, dynamic OG per page, Lighthouse pass. Analytics (optional). Syntax highlighting for MDX code blocks.
 
 ## Future routes (reserved in `site.config.ts`)
 

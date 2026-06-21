@@ -15,17 +15,21 @@ const LEVEL_CLASSES: Record<number, string> = {
 
 interface ContributionCellProps {
   day: ContributionDay | null;
+  includeYear?: boolean;
 }
 
-export function ContributionCell({ day }: ContributionCellProps) {
+export function ContributionCell({
+  day,
+  includeYear = false,
+}: ContributionCellProps) {
   if (!day) {
     return <span className={contributionCellClass} aria-hidden="true" />;
   }
 
-  const label = formatContributionLabel(day.count, day.date);
+  const label = formatContributionLabel(day.count, day.date, { includeYear });
 
   return (
-    <span className="group relative block">
+    <span className="contrib-cell-group relative block">
       <span
         aria-label={label}
         className={cn(

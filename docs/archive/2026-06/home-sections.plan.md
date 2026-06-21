@@ -1,6 +1,6 @@
 # Home Sections UI
 
-> **Superseded** by [consolidation-refactor.plan.md](consolidation-refactor.plan.md) and [homepage layout refactor](../archive/2026-06/homepage-layout-refactor.plan.md). Homepage now has 6 sections + Experience; shell is top nav.
+> **Archived:** 2026-06-20 — Superseded by [homepage layout refactor](homepage-layout-refactor.plan.md) and [consolidation refactor](consolidation-refactor.plan.md). Homepage now has 6 sections + Experience; shell is top nav.
 
 ## Scope
 

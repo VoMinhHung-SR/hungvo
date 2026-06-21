@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/Badge";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { MetaRow } from "@/components/ui/MetaRow";
 import { PageIntro } from "@/components/ui/PageIntro";
-import { imageFrame } from "@/lib/ui/card-classes";
+import { imageFrameMobile } from "@/lib/ui/card-classes";
 import { cn } from "@/lib/cn";
 import type { CaseStudy } from "@/types/content";
 
@@ -39,7 +39,7 @@ export function CaseStudyHeader({ caseStudy }: CaseStudyHeaderProps) {
         </div>
       )}
 
-      <figure className={cn(imageFrame, "mt-2")}>
+      <figure className={cn(imageFrameMobile, "mt-2")}>
         <Image
           src={caseStudy.heroImage}
           alt={caseStudy.heroImageAlt}

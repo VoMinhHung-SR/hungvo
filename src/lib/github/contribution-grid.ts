@@ -104,24 +104,70 @@ export function buildWeekColumns(
   return weeks;
 }
 
-export function getMonthLabelPositions(weeks: WeekColumn[]) {
-  const labels: { label: string; weekIndex: number }[] = [];
+export interface MonthLabelPosition {
+  label: string;
+  weekIndex: number;
+  /** Partial leading month — reserve column space without visible text */
+  hidden?: boolean;
+}
+
+function getLeadingPartialMonthPlaceholder(
+  weeks: WeekColumn[],
+): MonthLabelPosition | null {
+  const firstDay = weeks[0]?.find((day) => day !== null);
+  if (!firstDay) {
+    return null;
+  }
+
+  const date = new Date(`${firstDay.date}T00:00:00`);
+  if (date.getDate() === 1) {
+    return null;
+  }
+
+  return {
+    label: MONTH_LABELS[date.getMonth()],
+    weekIndex: 0,
+    hidden: true,
+  };
+}
+
+export function getMonthLabelPositions(
+  weeks: WeekColumn[],
+  options?: { reserveLeadingPartialMonth?: boolean },
+): MonthLabelPosition[] {
+  const labels: MonthLabelPosition[] = [];
   let lastMonth = -1;
 
   weeks.forEach((week, weekIndex) => {
-    for (const day of week) {
+    const monthStartDay = week.find((day) => {
       if (!day) {
-        continue;
+        return false;
       }
 
-      const month = new Date(`${day.date}T00:00:00`).getMonth();
-      if (month !== lastMonth) {
-        labels.push({ label: MONTH_LABELS[month], weekIndex });
-        lastMonth = month;
-      }
-      break;
+      return new Date(`${day.date}T00:00:00`).getDate() === 1;
+    });
+
+    if (!monthStartDay) {
+      return;
     }
+
+    const month = new Date(`${monthStartDay.date}T00:00:00`).getMonth();
+    if (month === lastMonth) {
+      return;
+    }
+
+    labels.push({ label: MONTH_LABELS[month], weekIndex });
+    lastMonth = month;
   });
 
-  return labels;
+  if (!options?.reserveLeadingPartialMonth) {
+    return labels;
+  }
+
+  const placeholder = getLeadingPartialMonthPlaceholder(weeks);
+  if (!placeholder) {
+    return labels;
+  }
+
+  return [placeholder, ...labels];
 }

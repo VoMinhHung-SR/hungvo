@@ -28,7 +28,7 @@ docs/
 **Naming:** `[feature-name].plan.md`
 
 **Examples:**
-- `docs/planning/home-sections.plan.md`
+- `docs/archive/2026-06/consolidation-refactor.plan.md`
 - `docs/planning/case-studies.plan.md`
 - `docs/archive/2026-06/blog-system.plan.md`
 

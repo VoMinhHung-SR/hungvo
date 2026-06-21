@@ -21,7 +21,6 @@ export function Header() {
           {siteConfig.resumeUrl ? (
             <Button
               href={siteConfig.resumeUrl}
-              variant="outline"
               className="px-4 py-1.5"
               target="_blank"
               rel="noopener noreferrer"

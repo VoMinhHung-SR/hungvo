@@ -8,7 +8,7 @@ Site-wide visual upgrade: one cohesive design system across home, shell, case st
 
 ### Design tokens (`globals.css`)
 - Depth tokens: `--radius-card`, `--glow-accent`, `--shadow-card`, `--shadow-card-hover`, `--transition-ui`
-- `.text-hero-glow` utility
+- `.text-hero-glow` utility (removed in Phase 4.6)
 - Palette locked: `#0a0a0a` background, `#38bdf8` accent
 
 ### Core primitives
