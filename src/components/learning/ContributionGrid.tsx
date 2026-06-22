@@ -1,10 +1,6 @@
 import type { ContributionDay } from "@/types/contributions";
 import { ContributionCell } from "@/components/learning/ContributionCell";
 import {
-  CONTRIBUTION_CELL_GAP,
-  CONTRIBUTION_CELL_SIZE,
-} from "@/components/learning/contribution-styles";
-import {
   buildRollingWeekColumns,
   buildWeekColumns,
   getMonthLabelPositions,
@@ -36,12 +32,7 @@ export function ContributionGrid({
     ? "Contribution graph for the last year"
     : `Contribution graph for ${year}`;
 
-  const weekStep = CONTRIBUTION_CELL_SIZE + CONTRIBUTION_CELL_GAP;
   const weekColumns = `repeat(${weeks.length}, var(--contrib-cell-size))`;
-
-  const labelByWeek = new Map(
-    monthLabels.map((entry) => [entry.weekIndex, entry]),
-  );
 
   return (
     <div className="overflow-x-auto overflow-y-visible md:overflow-visible">
@@ -50,22 +41,23 @@ export function ContributionGrid({
           className="contrib-calendar-months text-muted"
           style={{ gridTemplateColumns: weekColumns }}
         >
-          {weeks.map((_, weekIndex) => {
-            const month = labelByWeek.get(weekIndex);
-
-            return (
+          {monthLabels.map(
+            ({ label, startWeekIndex, endWeekIndex, hidden }) => (
               <span
-                key={`month-${weekIndex}`}
+                key={`${label}-${startWeekIndex}`}
                 className={cn(
                   "contrib-calendar-month-cell",
-                  month?.hidden && "contrib-calendar-month-label--reserved",
+                  hidden && "contrib-calendar-month-label--reserved",
                 )}
-                aria-hidden={month?.hidden || undefined}
+                style={{
+                  gridColumn: `${startWeekIndex + 1} / ${endWeekIndex + 1}`,
+                }}
+                aria-hidden={hidden || undefined}
               >
-                {month?.label ?? ""}
+                {label}
               </span>
-            );
-          })}
+            ),
+          )}
         </div>
 
         <div

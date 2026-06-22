@@ -46,6 +46,12 @@ Unified site shell across all routes, consolidated drifted styles, pruned unused
 
 Archived: [consolidation-refactor.plan.md](../archive/2026-06/consolidation-refactor.plan.md)
 
+## Phase 4.7 — Work Section Polish (in progress)
+
+Custom “engineering cards” grid for featured work: dev-grid cover overlay, tech pills, accent border hover, Lucide case-study link. Replaces alternating overlap layout.
+
+Plan: [work-section-polish.plan.md](work-section-polish.plan.md)
+
 ## Phase 5 — Interactive Areas
 
 AI Lab (`/lab`). LeetCode Dashboard. Framer Motion polish (sparingly).

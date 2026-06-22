@@ -60,8 +60,9 @@ export const homeContent = {
   },
   projects: {
     title: "Some Things I've Built",
-    featuredLabel: "Featured Project",
-    archiveTitle: "Other Noteworthy Projects",
+    subtitle:
+      "Selected products and tools — each with a full case study on problem, architecture, and what I learned.",
+    caseStudyLabel: "Case Study",
   },
   learning: {
     title: "Learning Journey",

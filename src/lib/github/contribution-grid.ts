@@ -106,14 +106,16 @@ export function buildWeekColumns(
 
 export interface MonthLabelPosition {
   label: string;
-  weekIndex: number;
+  startWeekIndex: number;
+  /** Exclusive — span covers [startWeekIndex, endWeekIndex) */
+  endWeekIndex: number;
   /** Partial leading month — reserve column space without visible text */
   hidden?: boolean;
 }
 
 function getLeadingPartialMonthPlaceholder(
   weeks: WeekColumn[],
-): MonthLabelPosition | null {
+): { label: string; weekIndex: number; hidden: true } | null {
   const firstDay = weeks[0]?.find((day) => day !== null);
   if (!firstDay) {
     return null;
@@ -131,11 +133,24 @@ function getLeadingPartialMonthPlaceholder(
   };
 }
 
+function toMonthSpans(
+  markers: Array<{ label: string; weekIndex: number; hidden?: boolean }>,
+  weekCount: number,
+): MonthLabelPosition[] {
+  return markers.map((marker, index) => ({
+    label: marker.label,
+    startWeekIndex: marker.weekIndex,
+    endWeekIndex: markers[index + 1]?.weekIndex ?? weekCount,
+    hidden: marker.hidden,
+  }));
+}
+
 export function getMonthLabelPositions(
   weeks: WeekColumn[],
   options?: { reserveLeadingPartialMonth?: boolean },
 ): MonthLabelPosition[] {
-  const labels: MonthLabelPosition[] = [];
+  const markers: Array<{ label: string; weekIndex: number; hidden?: boolean }> =
+    [];
   let lastMonth = -1;
 
   weeks.forEach((week, weekIndex) => {
@@ -156,18 +171,16 @@ export function getMonthLabelPositions(
       return;
     }
 
-    labels.push({ label: MONTH_LABELS[month], weekIndex });
+    markers.push({ label: MONTH_LABELS[month], weekIndex });
     lastMonth = month;
   });
 
-  if (!options?.reserveLeadingPartialMonth) {
-    return labels;
+  if (options?.reserveLeadingPartialMonth) {
+    const placeholder = getLeadingPartialMonthPlaceholder(weeks);
+    if (placeholder) {
+      return toMonthSpans([placeholder, ...markers], weeks.length);
+    }
   }
 
-  const placeholder = getLeadingPartialMonthPlaceholder(weeks);
-  if (!placeholder) {
-    return labels;
-  }
-
-  return [placeholder, ...labels];
+  return toMonthSpans(markers, weeks.length);
 }
