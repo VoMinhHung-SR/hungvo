@@ -1,6 +1,5 @@
-import Image from "next/image";
-
 import { Badge } from "@/components/ui/Badge";
+import { ProjectMedia } from "@/components/projects/ProjectMedia";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { MetaRow } from "@/components/ui/MetaRow";
 import { PageIntro } from "@/components/ui/PageIntro";
@@ -39,14 +38,14 @@ export function CaseStudyHeader({ caseStudy }: CaseStudyHeaderProps) {
         </div>
       )}
 
-      <figure className={cn(imageFrameMobile, "mt-2")}>
-        <Image
+      <figure className={cn(imageFrameMobile, "group mt-2 overflow-hidden")}>
+        <ProjectMedia
           src={caseStudy.heroImage}
           alt={caseStudy.heroImageAlt}
-          width={1600}
-          height={900}
-          className="h-auto w-full"
+          label={title}
+          aspect="wide"
           priority
+          interactive={false}
         />
       </figure>
     </PageIntro>

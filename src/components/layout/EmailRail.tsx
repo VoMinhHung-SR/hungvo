@@ -11,11 +11,11 @@ export function EmailRail() {
     >
       <ExternalLink
         href={`mailto:${email}`}
-        className="font-mono text-xs tracking-widest text-muted [writing-mode:vertical-rl] transition-colors duration-150 hover:text-accent"
+        className="rail-hover-lift email-rail-link text-muted no-underline hover:no-underline"
       >
         {email}
       </ExternalLink>
-      <span className="h-24 w-px bg-border" aria-hidden />
+      <span className="h-24 w-px shrink-0 bg-border" aria-hidden />
     </aside>
   );
 }

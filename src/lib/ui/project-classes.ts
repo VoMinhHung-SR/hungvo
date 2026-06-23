@@ -2,6 +2,15 @@ import { cn } from "@/lib/cn";
 
 import { cardBase, cardHover } from "@/lib/ui/card-classes";
 
+export const projectIndexRow = cn(
+  "group grid gap-6 border-b border-border py-12 last:border-b-0",
+  "lg:grid-cols-[4rem_minmax(0,1fr)_minmax(0,18rem)] lg:items-start lg:gap-8",
+);
+
+export const projectIndexRowReversed = cn(
+  "lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)_4rem]",
+);
+
 export const projectCard = cn(
   cardBase,
   cardHover,
@@ -15,7 +24,7 @@ export const techPill = cn(
 );
 
 export const projectCoverFrame = cn(
-  "relative aspect-video overflow-hidden bg-surface-elevated",
+  "relative overflow-hidden bg-surface-elevated",
 );
 
 export const projectCoverGrid = cn(

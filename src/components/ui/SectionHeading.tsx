@@ -30,11 +30,11 @@ export function SectionHeading({
         className="flex shrink-0 items-baseline gap-3 whitespace-nowrap text-section font-semibold tracking-tight text-foreground"
       >
         {index ? (
-          <span className="font-mono text-base font-normal text-accent">
+          <span className="font-mono text-[0.62em] font-normal leading-[1.1] text-accent tabular-nums">
             {index}.
           </span>
         ) : null}
-        <span>{children}</span>
+        <span className="leading-[1.1]">{children}</span>
       </Heading>
       {showRule ? (
         <span className="hidden h-px flex-1 bg-border sm:block" aria-hidden />
