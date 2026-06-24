@@ -1,5 +1,5 @@
-import { ProjectArchiveGrid } from "@/components/projects/ProjectArchiveGrid";
-import { FeaturedProjectsExpand } from "@/components/projects/FeaturedProjectsExpand";
+import { ArchiveProjectsExpand } from "@/components/projects/ArchiveProjectsExpand";
+import { ProjectIndexRow } from "@/components/projects/ProjectIndexRow";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { homeContent } from "@/content/home";
@@ -19,9 +19,13 @@ export function Projects() {
         </p>
       ) : null}
 
-      <ProjectArchiveGrid projects={archiveProjects} />
+      <div className="flex flex-col">
+        {featuredProjects.map((project, index) => (
+          <ProjectIndexRow key={project.slug} project={project} index={index} />
+        ))}
+      </div>
 
-      <FeaturedProjectsExpand projects={featuredProjects} />
+      <ArchiveProjectsExpand projects={archiveProjects} />
     </Section>
   );
 }

@@ -3,16 +3,16 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-import { ProjectIndexRow } from "@/components/projects/ProjectIndexRow";
+import { ProjectArchiveGrid } from "@/components/projects/ProjectArchiveGrid";
 import { homeContent } from "@/content/home";
 import { cn } from "@/lib/cn";
-import type { ProjectCard } from "@/types/content";
+import type { ArchiveProject } from "@/types/content";
 
-interface FeaturedProjectsExpandProps {
-  projects: ProjectCard[];
+interface ArchiveProjectsExpandProps {
+  projects: ArchiveProject[];
 }
 
-export function FeaturedProjectsExpand({ projects }: FeaturedProjectsExpandProps) {
+export function ArchiveProjectsExpand({ projects }: ArchiveProjectsExpandProps) {
   const [open, setOpen] = useState(false);
   const { showMore } = homeContent.projects;
 
@@ -38,10 +38,8 @@ export function FeaturedProjectsExpand({ projects }: FeaturedProjectsExpandProps
       </div>
 
       {open ? (
-        <div className="mt-10 flex flex-col border-t border-border pt-10">
-          {projects.map((project, index) => (
-            <ProjectIndexRow key={project.slug} project={project} index={index} />
-          ))}
+        <div className="mt-10 border-t border-border pt-10">
+          <ProjectArchiveGrid projects={projects} />
         </div>
       ) : null}
     </div>
