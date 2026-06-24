@@ -1,3 +1,5 @@
+import { siteConfig } from "@/content/site.config";
+
 export const homeContent = {
   hero: {
     greeting: "Hi, my name is",
@@ -63,6 +65,18 @@ export const homeContent = {
     subtitle:
       "Selected products and tools — each with a full case study on problem, architecture, and what I learned.",
     caseStudyLabel: "Case Study",
+    showMore: {
+      label: "Show more",
+      lessLabel: "Show less",
+    },
+    archive: {
+      eyebrow: "Archive",
+      title: "Other Noteworthy Projects",
+      viewArchive: {
+        label: "View the archive",
+        href: siteConfig.social.github,
+      },
+    },
   },
   learning: {
     title: "Learning Journey",

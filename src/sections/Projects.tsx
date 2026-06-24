@@ -1,11 +1,13 @@
-import { ProjectIndexRow } from "@/components/projects/ProjectIndexRow";
+import { ProjectArchiveGrid } from "@/components/projects/ProjectArchiveGrid";
+import { FeaturedProjectsExpand } from "@/components/projects/FeaturedProjectsExpand";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { homeContent } from "@/content/home";
-import { getAllProjects } from "@/lib/content";
+import { getArchiveProjects, getFeaturedProjects } from "@/lib/content";
 
 export function Projects() {
-  const projects = getAllProjects();
+  const featuredProjects = getFeaturedProjects();
+  const archiveProjects = getArchiveProjects();
   const { title, subtitle } = homeContent.projects;
 
   return (
@@ -16,11 +18,10 @@ export function Projects() {
           {subtitle}
         </p>
       ) : null}
-      <div className="flex flex-col">
-        {projects.map((project, index) => (
-          <ProjectIndexRow key={project.slug} project={project} index={index} />
-        ))}
-      </div>
+
+      <ProjectArchiveGrid projects={archiveProjects} />
+
+      <FeaturedProjectsExpand projects={featuredProjects} />
     </Section>
   );
 }

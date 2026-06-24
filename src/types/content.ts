@@ -56,6 +56,16 @@ export interface ProjectCard {
   featured: boolean;
 }
 
+export interface ArchiveProject {
+  id: string;
+  title: string;
+  description: string;
+  techStack: string[];
+  repoUrl?: string;
+  liveUrl?: string;
+  href?: string;
+}
+
 export interface CaseStudySeo {
   publishedAt: string;
   updatedAt: string;

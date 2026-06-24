@@ -33,3 +33,13 @@ export const projectCoverGrid = cn(
   "bg-size-[24px_24px]",
   "transition-opacity duration-300 group-hover:opacity-[0.08]",
 );
+
+export const projectArchiveCard = cn(
+  cardBase,
+  cardHover,
+  "group flex h-full w-full flex-col p-6 sm:p-7",
+);
+
+export const projectArchiveTech = cn(
+  "mt-auto flex list-none flex-wrap gap-x-1.5 gap-y-1 pt-6 font-mono text-xs leading-relaxed text-muted",
+);

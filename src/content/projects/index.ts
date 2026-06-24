@@ -12,9 +12,11 @@ export type ProjectSlug = keyof typeof caseStudies;
 
 export const allCaseStudies: CaseStudy[] = Object.values(caseStudies);
 
-export const featuredProjects: ProjectCard[] = allCaseStudies.filter(
-  (project) => project.featured,
-);
+const featuredOrder = ["interview-frogde", "pharmacy-management"] as const satisfies readonly ProjectSlug[];
+
+export const featuredProjects: ProjectCard[] = featuredOrder
+  .map((slug) => allCaseStudies.find((project) => project.slug === slug))
+  .filter((project): project is CaseStudy => Boolean(project?.featured));
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   if (!(slug in caseStudies)) {

@@ -5,13 +5,14 @@ import {
   getCaseStudyBySlug,
   type ProjectSlug,
 } from "@/content/projects";
+import { archiveProjects } from "@/content/projects/archive";
 import {
   allBlogPosts,
   getAllBlogSlugs,
   getBlogPostBySlug,
 } from "@/content/blog";
 import { allNotes, getAllNoteSlugs, getNoteBySlug } from "@/content/notes";
-import type { CaseStudy, ProjectCard } from "@/types/content";
+import type { CaseStudy, ProjectCard, ArchiveProject } from "@/types/content";
 
 export function getAllProjects(): ProjectCard[] {
   return allCaseStudies;
@@ -21,8 +22,8 @@ export function getFeaturedProjects(): ProjectCard[] {
   return featuredProjects;
 }
 
-export function getArchiveProjects(): ProjectCard[] {
-  return allCaseStudies.filter((project) => !project.featured);
+export function getArchiveProjects(): ArchiveProject[] {
+  return archiveProjects;
 }
 
 export function getProjectBySlug(slug: string): CaseStudy | undefined {
@@ -38,7 +39,7 @@ export {
   getAllNoteSlugs,
   getNoteBySlug,
 };
-export type { CaseStudy, ProjectCard, ProjectSlug };
+export type { CaseStudy, ProjectCard, ProjectSlug, ArchiveProject };
 export type {
   PostCollection,
   PostEntry,

@@ -10,7 +10,7 @@ export const pharmacyManagement: CaseStudy = {
     "Healthcare platform for pharmacy inventory, prescriptions, and staff workflows built with React and Django.",
   techStack: ["React", "Django", "TypeScript", "PostgreSQL"],
   image: `${imageBase}/cover.png`,
-  featured: false,
+  featured: true,
   role: "Full-stack Developer",
   timeline: "2025 – 2026",
   heroImage: `${imageBase}/hero.png`,
