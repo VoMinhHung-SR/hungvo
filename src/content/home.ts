@@ -69,13 +69,18 @@ export const homeContent = {
       label: "Show more",
       lessLabel: "Show less",
     },
-    archive: {
-      eyebrow: "Archive",
+    noteworthy: {
       title: "Other Noteworthy Projects",
       viewArchive: {
         label: "View the archive",
         href: siteConfig.social.github,
       },
+    },
+    leetcodeGames: {
+      eyebrow: "Mini Game Projects",
+      title: "Algorithm Practice, Playable",
+      description:
+        "Small browser projects I built while studying LeetCode — turning patterns like BFS, greedy, and game trees into interactive mini games.",
     },
   },
   learning: {

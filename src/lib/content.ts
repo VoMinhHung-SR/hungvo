@@ -5,14 +5,15 @@ import {
   getCaseStudyBySlug,
   type ProjectSlug,
 } from "@/content/projects";
-import { archiveProjects } from "@/content/projects/archive";
+import { leetcodeMiniGames } from "@/content/projects/leetcode-games";
+import { noteworthyProjects } from "@/content/projects/noteworthy";
 import {
   allBlogPosts,
   getAllBlogSlugs,
   getBlogPostBySlug,
 } from "@/content/blog";
 import { allNotes, getAllNoteSlugs, getNoteBySlug } from "@/content/notes";
-import type { CaseStudy, ProjectCard, ArchiveProject } from "@/types/content";
+import type { ArchiveProject, CaseStudy, ProjectCard } from "@/types/content";
 
 export function getAllProjects(): ProjectCard[] {
   return allCaseStudies;
@@ -22,8 +23,12 @@ export function getFeaturedProjects(): ProjectCard[] {
   return featuredProjects;
 }
 
-export function getArchiveProjects(): ArchiveProject[] {
-  return archiveProjects;
+export function getNoteworthyProjects(): ArchiveProject[] {
+  return noteworthyProjects;
+}
+
+export function getLeetcodeMiniGames(): ArchiveProject[] {
+  return leetcodeMiniGames;
 }
 
 export function getProjectBySlug(slug: string): CaseStudy | undefined {
@@ -39,7 +44,7 @@ export {
   getAllNoteSlugs,
   getNoteBySlug,
 };
-export type { CaseStudy, ProjectCard, ProjectSlug, ArchiveProject };
+export type { ArchiveProject, CaseStudy, ProjectCard, ProjectSlug };
 export type {
   PostCollection,
   PostEntry,

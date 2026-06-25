@@ -1,18 +1,24 @@
 import type { CaseStudy, ProjectCard } from "@/types/content";
 
+import { clinicOupharmacyFe } from "./clinic-oupharmacy-fe";
 import { interviewFrogde } from "./interview-frogde";
 import { pharmacyManagement } from "./pharmacy-management";
 
 const caseStudies = {
   "interview-frogde": interviewFrogde,
   "pharmacy-management": pharmacyManagement,
+  "clinic-oupharmacy-fe": clinicOupharmacyFe,
 } as const satisfies Record<string, CaseStudy>;
 
 export type ProjectSlug = keyof typeof caseStudies;
 
 export const allCaseStudies: CaseStudy[] = Object.values(caseStudies);
 
-const featuredOrder = ["interview-frogde", "pharmacy-management"] as const satisfies readonly ProjectSlug[];
+const featuredOrder = [
+  "interview-frogde",
+  "pharmacy-management",
+  "clinic-oupharmacy-fe",
+] as const satisfies readonly ProjectSlug[];
 
 export const featuredProjects: ProjectCard[] = featuredOrder
   .map((slug) => allCaseStudies.find((project) => project.slug === slug))
