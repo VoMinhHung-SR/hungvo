@@ -12,8 +12,10 @@ interface CaseStudyHeaderProps {
 }
 
 export function CaseStudyHeader({ caseStudy }: CaseStudyHeaderProps) {
-  const { title, description, role, timeline, techStack, liveUrl, repoUrl } =
+  const { title, description, role, timeline, techStack, liveUrl, repoUrl, repoLinks } =
     caseStudy;
+  const sourceLinks =
+    repoLinks ?? (repoUrl ? [{ label: "Source code", href: repoUrl }] : []);
 
   return (
     <PageIntro eyebrow="Case Study" title={title} description={description}>
@@ -27,14 +29,16 @@ export function CaseStudyHeader({ caseStudy }: CaseStudyHeaderProps) {
         ))}
       </ul>
 
-      {(liveUrl || repoUrl) && (
+      {(liveUrl || sourceLinks.length > 0) && (
         <div className="flex flex-wrap gap-4 text-sm">
           {liveUrl ? (
             <ExternalLink href={liveUrl}>Live demo</ExternalLink>
           ) : null}
-          {repoUrl ? (
-            <ExternalLink href={repoUrl}>Source code</ExternalLink>
-          ) : null}
+          {sourceLinks.map((link) => (
+            <ExternalLink key={link.href} href={link.href}>
+              {link.label}
+            </ExternalLink>
+          ))}
         </div>
       )}
 

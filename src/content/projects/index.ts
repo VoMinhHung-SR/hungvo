@@ -1,13 +1,13 @@
 import type { CaseStudy, ProjectCard } from "@/types/content";
 
-import { clinicOupharmacyFe } from "./clinic-oupharmacy-fe";
 import { interviewFrogde } from "./interview-frogde";
+import { oupharmacyStore } from "./oupharmacy-store";
 import { pharmacyManagement } from "./pharmacy-management";
 
 const caseStudies = {
   "interview-frogde": interviewFrogde,
+  "oupharmacy-store": oupharmacyStore,
   "pharmacy-management": pharmacyManagement,
-  "clinic-oupharmacy-fe": clinicOupharmacyFe,
 } as const satisfies Record<string, CaseStudy>;
 
 export type ProjectSlug = keyof typeof caseStudies;
@@ -16,8 +16,8 @@ export const allCaseStudies: CaseStudy[] = Object.values(caseStudies);
 
 const featuredOrder = [
   "interview-frogde",
+  "oupharmacy-store",
   "pharmacy-management",
-  "clinic-oupharmacy-fe",
 ] as const satisfies readonly ProjectSlug[];
 
 export const featuredProjects: ProjectCard[] = featuredOrder

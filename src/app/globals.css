@@ -16,6 +16,7 @@
   --width-reading: 48rem;
   --spacing-section: 6rem;
   --spacing-nav-offset: 5.5rem;
+  --spacing-scroll-gap: 1.5rem;
 
   --text-hero: clamp(3rem, 8vw, 6rem);
   --text-section: clamp(2rem, 4vw, 2.75rem);

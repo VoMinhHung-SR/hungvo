@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-const SCROLL_OFFSET = 100;
+import { getScrollOffsetPx, getSectionScrollMarker } from "@/lib/nav-scroll";
+
 const BOTTOM_THRESHOLD = 80;
+const ACTIVE_THRESHOLD = 16;
 
 export function useActiveSection(sectionIds: string[]) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -27,6 +29,7 @@ export function useActiveSection(sectionIds: string[]) {
       const scrollY = window.scrollY;
       const viewportBottom = scrollY + window.innerHeight;
       const pageBottom = document.documentElement.scrollHeight;
+      const navOffset = getScrollOffsetPx();
 
       if (pageBottom - viewportBottom < BOTTOM_THRESHOLD) {
         setActiveSection(sections[sections.length - 1].id);
@@ -34,9 +37,11 @@ export function useActiveSection(sectionIds: string[]) {
       }
 
       let current: string | null = null;
+
       for (const { id, element } of sections) {
-        const top = element.getBoundingClientRect().top + scrollY;
-        if (top - SCROLL_OFFSET <= scrollY) {
+        const marker = getSectionScrollMarker(element);
+        const top = marker.getBoundingClientRect().top;
+        if (top <= navOffset + ACTIVE_THRESHOLD) {
           current = id;
         }
       }

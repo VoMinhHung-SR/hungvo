@@ -20,7 +20,7 @@ export function CollectionIndexPage({
   return (
     <div className="flex max-w-reading flex-col gap-10">
       <header className="flex flex-col gap-4">
-        <SectionHeading as="h1" className="mb-0">
+        <SectionHeading as="h1" size="default" className="mb-0">
           {title}
         </SectionHeading>
         <p className="text-lg text-muted">{description}</p>

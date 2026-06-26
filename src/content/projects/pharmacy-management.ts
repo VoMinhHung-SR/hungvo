@@ -7,8 +7,8 @@ export const pharmacyManagement: CaseStudy = {
   slug,
   title: "Pharmacy Management System",
   description:
-    "Healthcare platform for pharmacy inventory, prescriptions, and staff workflows built with React and Django.",
-  techStack: ["React", "Django", "TypeScript", "PostgreSQL"],
+    "Full-stack clinic and pharmacy platform — patient management, appointments, and inventory — with React frontend and Django REST API.",
+  techStack: ["React", "Django", "PostgreSQL", "JWT"],
   image: `${imageBase}/cover.png`,
   featured: true,
   role: "Full-stack Developer",
@@ -27,15 +27,25 @@ export const pharmacyManagement: CaseStudy = {
       "PostgreSQL",
     ],
   },
-  repoUrl: "https://github.com/VoMinhHung-SR/Clinic-Oupharmacy-BE",
+  liveUrl: "https://clinic-oupharmacy.vercel.app",
+  repoLinks: [
+    {
+      label: "Backend",
+      href: "https://github.com/VoMinhHung-SR/Clinic-Oupharmacy-BE",
+    },
+    {
+      label: "Frontend",
+      href: "https://github.com/VoMinhHung-SR/Clinic-Oupharmacy-FE",
+    },
+  ],
   sections: [
     {
       id: "overview",
       type: "text",
       title: "Overview",
       paragraphs: [
-        "A pharmacy management system designed to streamline inventory tracking, prescription handling, and day-to-day staff operations for small to mid-size pharmacies.",
-        "The platform replaces fragmented spreadsheets and manual logs with a single source of truth for stock levels, orders, and patient-facing workflows.",
+        "Clinic OuPharmacy is a full-stack healthcare platform for managing patients, appointments, and pharmacy inventory — built as separate React and Django repositories that deploy together.",
+        "The frontend handles staff dashboards, booking flows, and role-based routing; the backend exposes REST APIs with JWT auth and PostgreSQL persistence.",
       ],
     },
     {
@@ -62,7 +72,7 @@ export const pharmacyManagement: CaseStudy = {
       type: "text",
       title: "Architecture",
       paragraphs: [
-        "React frontend with TypeScript for typed forms and tables. Django REST API backed by PostgreSQL. Authentication and permissions enforced at the API layer with clear domain models for inventory, prescriptions, and users.",
+        "React + Vite frontend with Material UI and Tailwind, deployed on Vercel. Django REST Framework API with PostgreSQL, JWT authentication, and Gunicorn — hosted on Render. Multi-language support (EN/VI) across the staff interface.",
       ],
     },
     {

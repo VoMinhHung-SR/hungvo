@@ -4,9 +4,8 @@ export const homeContent = {
   hero: {
     greeting: "Hi, my name is",
     name: "Hung Vo.",
-    tagline: "I build things for the web.",
-    description:
-      "I'm a Frontend Developer who enjoys shipping modern web products — from polished interfaces to AI-powered tools that solve real problems.",
+    tagline: "I build modern web experiences",
+    description:"Frontend Developer specializing in React, Next.js, and TypeScript. Focused on building performant user experiences, shipping real products, and improving through continuous learning.",
     cta: {
       label: "Check out my work!",
       href: "/#projects",
@@ -15,16 +14,18 @@ export const homeContent = {
   about: {
     title: "About Me",
     paragraphs: [
-      "I'm a Frontend Developer who enjoys building clean, intentional interfaces with the React ecosystem — React, Next.js, and TypeScript are my daily tools.",
-      "I care about product mindset as much as code quality: shipping useful tools, iterating from real feedback, and keeping UX simple.",
-      "When I'm not coding, I'm usually exploring AI applications, system design, or sharpening fundamentals through continuous practice.",
+      "I'm a frontend developer who enjoys building products with React, Next.js, and TypeScript.", 
+      "I like turning ideas into real applications — from polished user interfaces to full-stack products backed by Django and PostgreSQL. I'm particularly interested in the intersection of product thinking, engineering, and user experience.",
+      "I believe progress comes from consistency more than intensity. That's why I enjoy maintaining long-term habits across coding, learning, and fitness, and why I'm always looking for ways to improve a little every day.",
+      "Currently, I'm exploring AI-assisted development, system design, and the tools that help developers build better software.",
     ],
     skills: [
       "JavaScript (ES6+)",
       "TypeScript",
       "React",
       "Next.js",
-      "Node.js",
+      "Django",
+      "PostgreSQL",
       "Tailwind CSS",
       "REST APIs",
       "Git",
@@ -71,24 +72,22 @@ export const homeContent = {
     },
     noteworthy: {
       title: "Other Noteworthy Projects",
+      description:
+        "Extensions, tools, and browser mini games — smaller builds alongside the featured work above.",
       viewArchive: {
         label: "View the archive",
         href: siteConfig.social.github,
       },
-    },
-    leetcodeGames: {
-      eyebrow: "Mini Game Projects",
-      title: "Algorithm Practice, Playable",
-      description:
-        "Small browser projects I built while studying LeetCode — turning patterns like BFS, greedy, and game trees into interactive mini games.",
     },
   },
   learning: {
     title: "Learning Journey",
     focusLabel: "Current Focus",
     items: [
-      "AI Applications",
+      "AI-Assisted Development",
+      "AWS Services",
       "System Design",
+      "Full-Stack Product Development",
       "Browser Extensions",
       "LeetCode",
     ],

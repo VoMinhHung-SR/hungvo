@@ -1,19 +1,13 @@
-import { LeetcodeGamesExpand } from "@/components/projects/LeetcodeGamesExpand";
-import { ProjectArchiveGrid } from "@/components/projects/ProjectArchiveGrid";
+import { ProjectArchiveExpand } from "@/components/projects/ProjectArchiveExpand";
 import { ProjectIndexRow } from "@/components/projects/ProjectIndexRow";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { homeContent } from "@/content/home";
-import {
-  getFeaturedProjects,
-  getLeetcodeMiniGames,
-  getNoteworthyProjects,
-} from "@/lib/content";
+import { getFeaturedProjects, getMoreProjects } from "@/lib/content";
 
 export function Projects() {
   const featuredProjects = getFeaturedProjects();
-  const noteworthyProjects = getNoteworthyProjects();
-  const leetcodeMiniGames = getLeetcodeMiniGames();
+  const moreProjects = getMoreProjects();
   const { title, subtitle, noteworthy } = homeContent.projects;
 
   return (
@@ -32,12 +26,12 @@ export function Projects() {
       </div>
 
       <div className="mt-16 border-t border-border pt-14">
-        <ProjectArchiveGrid
-          projects={noteworthyProjects}
+        <ProjectArchiveExpand
+          projects={moreProjects}
           title={noteworthy.title}
+          description={noteworthy.description}
           viewArchive={noteworthy.viewArchive}
         />
-        <LeetcodeGamesExpand projects={leetcodeMiniGames} />
       </div>
     </Section>
   );

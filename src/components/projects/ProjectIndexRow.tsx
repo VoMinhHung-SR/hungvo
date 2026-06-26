@@ -23,7 +23,9 @@ interface ProjectIndexRowProps {
 export function ProjectIndexRow({ project, index, className }: ProjectIndexRowProps) {
   const { caseStudyLabel } = homeContent.projects;
   const caseStudy = getCaseStudyBySlug(project.slug);
-  const repoUrl = caseStudy?.repoUrl;
+  const repoLinks =
+    caseStudy?.repoLinks ??
+    (caseStudy?.repoUrl ? [{ label: "Source", href: caseStudy.repoUrl }] : []);
   const liveUrl = caseStudy?.liveUrl;
   const meta = [caseStudy?.timeline, caseStudy?.role].filter(Boolean).join(" · ");
   const indexLabel = String(index + 1).padStart(2, "0");
@@ -83,16 +85,17 @@ export function ProjectIndexRow({ project, index, className }: ProjectIndexRowPr
             <ArrowRight className="h-4 w-4" aria-hidden />
           </InternalLink>
 
-          {repoUrl ? (
+          {repoLinks.map((link) => (
             <ExternalLink
-              href={repoUrl}
-              aria-label={`${project.title} source code`}
+              key={link.href}
+              href={link.href}
+              aria-label={`${project.title} ${link.label}`}
               className="inline-flex items-center gap-1.5 font-mono text-xs text-muted transition-colors hover:text-accent"
             >
               <GitHubIcon className="h-4 w-4" />
-              Source
+              {link.label}
             </ExternalLink>
-          ) : null}
+          ))}
           {liveUrl ? (
             <ExternalLink
               href={liveUrl}

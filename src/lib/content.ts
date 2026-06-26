@@ -23,6 +23,10 @@ export function getFeaturedProjects(): ProjectCard[] {
   return featuredProjects;
 }
 
+export function getMoreProjects(): ArchiveProject[] {
+  return [...noteworthyProjects, ...leetcodeMiniGames];
+}
+
 export function getNoteworthyProjects(): ArchiveProject[] {
   return noteworthyProjects;
 }

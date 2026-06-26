@@ -1,32 +1,28 @@
-import { siteConfig } from "@/content/site.config";
 import type { ArchiveProject } from "@/types/content";
-
-/** Sample noteworthy projects — replace with real side projects when ready. */
-const github = siteConfig.social.github;
 
 export const noteworthyProjects: ArchiveProject[] = [
   {
-    id: "dev-notes",
-    title: "Dev Notes",
+    id: "avs-adblock-extension",
+    title: "AnimeVietsub AdBlock",
     description:
-      "Minimal note-taking app for developers with markdown support, tags, and fast full-text search.",
-    techStack: ["Next.js", "TypeScript", "Prisma"],
-    repoUrl: github,
+      "Chrome MV3 extension and Tampermonkey script to reduce static ads, popups, and pause-ad overlays on anime streaming sites.",
+    techStack: ["JavaScript", "Chrome MV3", "Tampermonkey"],
+    repoUrl: "https://github.com/VoMinhHung-SR/avs_adblock_extension",
   },
   {
-    id: "commit-graph",
-    title: "Commit Graph",
+    id: "data-scraper-tool",
+    title: "Data Scraper Tool",
     description:
-      "GitHub contribution-style visualizer for local repos — inspect activity patterns by author and branch.",
-    techStack: ["React", "D3.js", "Node.js"],
-    repoUrl: github,
+      "Chrome extension to extract tables, links, and custom CSS targets from web pages — with JSON/CSV export and optional presets for a few specific sites.",
+    techStack: ["JavaScript", "Chrome APIs", "HTML"],
+    repoUrl: "https://github.com/VoMinhHung-SR/data_scraper_tool",
   },
   {
-    id: "snippet-shelf",
-    title: "Snippet Shelf",
+    id: "hide-roads",
+    title: "HideRoAds",
     description:
-      "Browser extension to save, tag, and sync code snippets across machines with one-click copy.",
-    techStack: ["TypeScript", "Chrome APIs", "Tailwind"],
-    repoUrl: github,
-  },
+      "Lightweight Chrome extension that hides intrusive ads and sponsored blocks while browsing — built for a cleaner reading experience.",
+    techStack: ["JavaScript", "Chrome APIs", "CSS"],
+    repoUrl: "https://github.com/VoMinhHung-SR/HideRoAds",
+  }
 ];

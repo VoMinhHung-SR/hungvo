@@ -107,6 +107,11 @@ export type CaseStudySection =
   | MetricsSection
   | GallerySection;
 
+export interface RepoLink {
+  label: string;
+  href: string;
+}
+
 export interface CaseStudy extends ProjectCard {
   role: string;
   timeline: string;
@@ -116,6 +121,7 @@ export interface CaseStudy extends ProjectCard {
   sections: CaseStudySection[];
   liveUrl?: string;
   repoUrl?: string;
+  repoLinks?: RepoLink[];
 }
 
 export interface ContentItemBase {
