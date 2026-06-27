@@ -21,20 +21,20 @@ export function SocialRail() {
       aria-label="Social links"
       className="fixed bottom-0 left-6 z-30 hidden flex-col items-center gap-6 lg:flex xl:left-8"
     >
-      <ul className="flex flex-col gap-5">
+      <ul className="flex flex-col items-center gap-5">
         {socialLinks.map(({ label, href, Icon }) => (
           <li key={href}>
             <ExternalLink
               href={href}
               aria-label={label}
-              className="text-muted transition-colors duration-150 hover:text-accent"
+              className="rail-hover-lift text-muted no-underline hover:no-underline"
             >
               <Icon className="h-5 w-5" />
             </ExternalLink>
           </li>
         ))}
       </ul>
-      <span className="h-24 w-px bg-border" aria-hidden />
+      <span className="h-24 w-px shrink-0 bg-border" aria-hidden />
     </aside>
   );
 }

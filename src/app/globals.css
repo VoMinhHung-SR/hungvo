@@ -2,13 +2,13 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #0a0a0a;
-  --surface: #141414;
-  --surface-elevated: #1c1c1c;
-  --foreground: #ededed;
-  --muted: #888888;
+  --background: #18181b;
+  --surface: #1f1f23;
+  --surface-elevated: #27272a;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
   --accent: #38bdf8;
-  --border: #262626;
+  --border: #2e2e33;
   --focus: #38bdf8;
   --success: #4ade80;
 
@@ -16,6 +16,7 @@
   --width-reading: 48rem;
   --spacing-section: 6rem;
   --spacing-nav-offset: 5.5rem;
+  --spacing-scroll-gap: 1.5rem;
 
   --text-hero: clamp(3rem, 8vw, 6rem);
   --text-section: clamp(2rem, 4vw, 2.75rem);
@@ -24,15 +25,14 @@
   --leading-body: 1.6;
   --leading-heading: 1.1;
 
-  --noise-image: url("/images/projects/bg-noise.png");
-  --noise-opacity: 0.12;
-  --noise-size: 180px;
+  --noise-image: url("/noise.png");
+  --noise-size: 200px;
 
   --contrib-cell-size: 12px;
   --contrib-cell-gap: 3px;
   --contrib-cell-radius: 2px;
 
-  --contrib-level-0: #1a1a1a;
+  --contrib-level-0: #27272a;
   --contrib-level-1: color-mix(in srgb, var(--accent) 28%, #0f172a);
   --contrib-level-2: color-mix(in srgb, var(--accent) 52%, #0f172a);
   --contrib-level-3: color-mix(in srgb, var(--accent) 78%, #0f172a);
@@ -45,7 +45,7 @@
   --shadow-card-hover: 0 16px 48px rgb(0 0 0 / 0.5);
   --transition-ui: 150ms ease;
 
-  /* Lift + solid offset shadow (outline button interaction) */
+  /* ui-lift: solid cyan offset shadow on outline CTAs (see .ui-lift below) */
   --lift-shadow-x: 3px;
   --lift-shadow-y: 3px;
   --lift-translate: 4px;
@@ -91,25 +91,29 @@ body {
   position: relative;
   isolation: isolate;
   min-height: 100%;
-  background-color: transparent;
+  background-color: var(--background);
+  background-image: var(--noise-image);
+  background-repeat: repeat;
+  background-size: var(--noise-size);
+  background-position: 0 0;
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--text-body);
   line-height: var(--leading-body);
 }
 
-body::before {
+body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-color: var(--background);
-  background-image: var(--noise-image);
-  background-repeat: repeat;
-  background-size: var(--noise-size);
-  opacity: var(--noise-opacity);
-  mix-blend-mode: overlay;
+  background: radial-gradient(
+    ellipse 85% 65% at 50% 0%,
+    transparent 45%,
+    color-mix(in srgb, var(--background) 35%, black)
+  );
+  opacity: 0.55;
 }
 
 .text-hero {
@@ -130,11 +134,27 @@ body::before {
   text-wrap: balance;
 }
 
-.text-hero-glow {
-  text-shadow: 0 0 48px color-mix(in srgb, var(--accent) 22%, transparent);
+.hero-grid {
+  background-image:
+    linear-gradient(
+      color-mix(in srgb, var(--accent) 22%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent) 22%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 55% at 20% 45%, black, transparent);
+  opacity: 0.45;
 }
 
-/* Solid shadow lift — buttons, outline CTAs */
+/*
+ * ui-lift — solid offset shadow on hover/focus-visible
+ * Tokens: --lift-shadow-x/y, --lift-translate, --shadow-lift, --transition-lift
+ * Apply via uiLift from lib/ui/interaction-classes.ts (outline Button, Header Resume)
+ */
 .ui-lift {
   transition:
     transform var(--transition-lift),
@@ -161,6 +181,45 @@ body::before {
 
 .link-accent:hover {
   text-decoration: underline;
+}
+
+.email-rail-link {
+  display: inline-block;
+  width: max-content;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.rail-hover-lift {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s ease;
+}
+
+.rail-hover-lift.email-rail-link {
+  display: inline-block;
+}
+
+.rail-hover-lift:hover {
+  transform: translateY(-4px);
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail-hover-lift {
+    transition: color 0.4s ease;
+  }
+
+  .rail-hover-lift:hover {
+    transform: none;
+  }
 }
 
 .skip-link {
@@ -247,14 +306,14 @@ body::before {
   border-top-color: var(--border);
 }
 
-.group:hover .contrib-tooltip {
-  display: block;
+@media (hover: hover) and (pointer: fine) {
+  .contrib-cell-group:hover .contrib-tooltip {
+    display: block;
+  }
 }
 
 .contrib-calendar-months {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: var(--contrib-cell-size);
   gap: var(--contrib-cell-gap);
   margin-bottom: 6px;
   height: 16px;
@@ -262,10 +321,22 @@ body::before {
   line-height: 1;
 }
 
+.contrib-calendar-month-cell {
+  overflow: visible;
+  white-space: nowrap;
+  line-height: 1;
+  text-align: center;
+}
+
+.contrib-calendar-month-label--reserved {
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
 .contrib-calendar-grid {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(7, var(--contrib-cell-size));
-  grid-auto-columns: var(--contrib-cell-size);
   gap: var(--contrib-cell-gap);
 }

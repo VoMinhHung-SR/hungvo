@@ -1,5 +1,5 @@
 import { PostCard } from "@/components/publishing/PostCard";
-import { PageIntro } from "@/components/ui/PageIntro";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { PostCollection, PostMeta } from "@/types/content";
 
 interface CollectionIndexPageProps {
@@ -19,7 +19,12 @@ export function CollectionIndexPage({
 }: CollectionIndexPageProps) {
   return (
     <div className="flex max-w-reading flex-col gap-10">
-      <PageIntro as="div" title={title} description={description} className="mb-0" />
+      <header className="flex flex-col gap-4">
+        <SectionHeading as="h1" size="default" className="mb-0">
+          {title}
+        </SectionHeading>
+        <p className="text-lg text-muted">{description}</p>
+      </header>
 
       {posts.length === 0 ? (
         <p className="text-muted">{emptyMessage}</p>

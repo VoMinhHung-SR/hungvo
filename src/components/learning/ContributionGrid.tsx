@@ -5,6 +5,7 @@ import {
   buildWeekColumns,
   getMonthLabelPositions,
 } from "@/lib/github/contribution-grid";
+import { cn } from "@/lib/cn";
 
 interface ContributionGridProps {
   contributions: ContributionDay[];
@@ -22,36 +23,53 @@ export function ContributionGrid({
   const weeks = isRollingYear
     ? buildRollingWeekColumns(contributions, rangeEnd)
     : buildWeekColumns(contributions, year);
-  const monthLabels = getMonthLabelPositions(weeks);
+  const monthLabels = getMonthLabelPositions(weeks, {
+    reserveLeadingPartialMonth: isRollingYear,
+  });
   const cells = weeks.flatMap((week) => week);
 
   const ariaLabel = isRollingYear
     ? "Contribution graph for the last year"
     : `Contribution graph for ${year}`;
 
+  const weekColumns = `repeat(${weeks.length}, var(--contrib-cell-size))`;
+
   return (
     <div className="overflow-x-auto overflow-y-visible md:overflow-visible">
       <div role="img" aria-label={ariaLabel} className="relative w-max pt-1">
-        <div className="contrib-calendar-months text-muted">
-          {weeks.map((_, weekIndex) => {
-            const month = monthLabels.find(
-              (label) => label.weekIndex === weekIndex,
-            );
-
-            return (
+        <div
+          className="contrib-calendar-months text-muted"
+          style={{ gridTemplateColumns: weekColumns }}
+        >
+          {monthLabels.map(
+            ({ label, startWeekIndex, endWeekIndex, hidden }) => (
               <span
-                key={`month-${weekIndex}`}
-                className="overflow-visible leading-none"
+                key={`${label}-${startWeekIndex}`}
+                className={cn(
+                  "contrib-calendar-month-cell",
+                  hidden && "contrib-calendar-month-label--reserved",
+                )}
+                style={{
+                  gridColumn: `${startWeekIndex + 1} / ${endWeekIndex + 1}`,
+                }}
+                aria-hidden={hidden || undefined}
               >
-                {month?.label ?? ""}
+                {label}
               </span>
-            );
-          })}
+            ),
+          )}
         </div>
 
-        <div className="contrib-calendar-grid">
+        <div
+          className="contrib-calendar-grid"
+          style={{ gridTemplateColumns: weekColumns }}
+        >
           {cells.map((day, index) => (
-            <ContributionCell key={`cell-${index}`} day={day} />
+            <ContributionCell
+              key={day?.date ?? `empty-${index}`}
+              day={day}
+              includeYear={isRollingYear}
+            />
           ))}
         </div>
       </div>

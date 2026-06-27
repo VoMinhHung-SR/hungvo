@@ -2,49 +2,29 @@ import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
 import { cn } from "@/lib/cn";
-import { uiLift } from "@/lib/ui/lift-shadow-classes";
+import { uiLift } from "@/lib/ui/interaction-classes";
 
-type ButtonVariant = "primary" | "ghost" | "outline";
-
-interface BaseButtonProps {
-  variant?: ButtonVariant;
+type ButtonAsButton = {
+  href?: undefined;
   className?: string;
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-type ButtonAsButton = BaseButtonProps &
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    href?: undefined;
-  };
-
-type ButtonAsLink = BaseButtonProps &
-  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
-    href: string;
-  };
+type ButtonAsLink = {
+  href: string;
+  className?: string;
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href">;
 
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
-const variantStyles: Record<ButtonVariant, string> = {
-  primary:
-    "text-accent border border-accent/30 hover:border-accent/60 hover:bg-accent/10 hover:shadow-[var(--glow-accent)]",
-  ghost:
-    "text-foreground border border-transparent hover:text-accent hover:underline",
-  outline: cn(
-    "font-mono text-accent border border-accent bg-transparent px-6 py-3",
-    uiLift,
-  ),
-};
+const outlineStyles = cn(
+  "font-mono text-accent border border-accent bg-transparent px-6 py-3",
+  uiLift,
+);
 
-export function Button({
-  variant = "primary",
-  className,
-  href,
-  ...props
-}: ButtonProps) {
+export function Button({ className, href, ...props }: ButtonProps) {
   const styles = cn(
-    "inline-flex items-center justify-center rounded px-4 py-2 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-    variant !== "outline" &&
-      "transition-[color,background-color,border-color,box-shadow,text-decoration] duration-150",
-    variantStyles[variant],
+    "inline-flex items-center justify-center rounded text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    outlineStyles,
     className,
   );
 

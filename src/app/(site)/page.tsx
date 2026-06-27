@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/ui/Reveal";
 import { About } from "@/sections/About";
 import { Contact } from "@/sections/Contact";
 import { Experience } from "@/sections/Experience";
@@ -9,11 +10,21 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Learning />
-      <Contact />
+      <Reveal>
+        <About />
+      </Reveal>
+      <Reveal delay={0.05}>
+        <Experience />
+      </Reveal>
+      <Reveal delay={0.05}>
+        <Projects />
+      </Reveal>
+      <Reveal delay={0.05}>
+        <Learning />
+      </Reveal>
+      <Reveal delay={0.05}>
+        <Contact />
+      </Reveal>
     </>
   );
 }

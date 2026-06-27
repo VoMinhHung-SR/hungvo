@@ -16,3 +16,14 @@ export const imageFrame = cn(
 export const surfacePanel = cn(
   "rounded-lg border border-border bg-surface p-4 sm:p-6",
 );
+
+/** Metric stat cells — lighter than ContentCard, no hover lift */
+export const metricCell = cn(
+  "rounded-lg border border-border/60 bg-surface/60 p-4",
+);
+
+/** Hero image frame on narrow viewports only */
+export const imageFrameMobile = cn(
+  imageFrame,
+  "sm:overflow-visible sm:rounded-none sm:bg-transparent sm:ring-0",
+);

@@ -6,12 +6,12 @@ export const siteConfig: SiteConfig = {
   name: "Hung Vo",
   title: "Hung Vo | Frontend Developer",
   description:
-    "Frontend Developer focused on building modern web applications and AI-powered tools.",
+    "Frontend developer who ships real products — clinic software, browser tools, and full-stack apps with React, Next.js, and Django.",
   url: siteUrl,
   author: {
     name: "Hung Vo",
     role: "Frontend Developer",
-    email: "hello@hungvo.dev",
+    email: "vominhhug154@gmail.com",
   },
   social: {
     github: "https://github.com/VoMinhHung-SR",

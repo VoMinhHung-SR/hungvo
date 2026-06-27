@@ -8,8 +8,10 @@ export function Experience() {
 
   return (
     <Section id="experience">
-      <SectionHeading index="02">{title}</SectionHeading>
-      <ExperienceTabs items={items} />
+      <div className="mx-auto max-w-3xl">
+        <SectionHeading index="02">{title}</SectionHeading>
+        <ExperienceTabs items={items} />
+      </div>
     </Section>
   );
 }

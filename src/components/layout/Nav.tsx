@@ -6,6 +6,7 @@ import { siteConfig } from "@/content/site.config";
 import { InternalLink } from "@/components/ui/Link";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/cn";
+import { handleHomeSectionLinkClick } from "@/lib/nav-scroll";
 import type { NavItem } from "@/types/content";
 
 const sectionIds = siteConfig.homeNav
@@ -28,9 +29,20 @@ function NavLink({
       ? pathname === item.href || pathname.startsWith(`${item.href}/`)
       : item.sectionId !== undefined && activeSection === item.sectionId;
 
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (item.kind !== "anchor" || !item.sectionId) {
+      return;
+    }
+
+    if (handleHomeSectionLinkClick(event, item.href, pathname)) {
+      return;
+    }
+  };
+
   return (
     <InternalLink
       href={item.href}
+      onClick={handleClick}
       className={cn(
         "font-mono text-sm no-underline hover:no-underline transition-colors duration-150",
         isActive ? "text-accent" : "text-muted hover:text-accent",

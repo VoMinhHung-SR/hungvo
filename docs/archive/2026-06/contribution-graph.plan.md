@@ -191,5 +191,5 @@ Dark tooltip above cell with border, shadow, arrow. Cell outline on hover.
 ## Related
 
 - [Implementation roadmap](../../planning/implementation-roadmap.plan.md)
-- [Home sections plan](../../planning/home-sections.plan.md)
+- [Home sections plan](home-sections.plan.md)
 - [Project brief](../../ai/project-brief.md)

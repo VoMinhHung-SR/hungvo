@@ -104,24 +104,83 @@ export function buildWeekColumns(
   return weeks;
 }
 
-export function getMonthLabelPositions(weeks: WeekColumn[]) {
-  const labels: { label: string; weekIndex: number }[] = [];
+export interface MonthLabelPosition {
+  label: string;
+  startWeekIndex: number;
+  /** Exclusive — span covers [startWeekIndex, endWeekIndex) */
+  endWeekIndex: number;
+  /** Partial leading month — reserve column space without visible text */
+  hidden?: boolean;
+}
+
+function getLeadingPartialMonthPlaceholder(
+  weeks: WeekColumn[],
+): { label: string; weekIndex: number; hidden: true } | null {
+  const firstDay = weeks[0]?.find((day) => day !== null);
+  if (!firstDay) {
+    return null;
+  }
+
+  const date = new Date(`${firstDay.date}T00:00:00`);
+  if (date.getDate() === 1) {
+    return null;
+  }
+
+  return {
+    label: MONTH_LABELS[date.getMonth()],
+    weekIndex: 0,
+    hidden: true,
+  };
+}
+
+function toMonthSpans(
+  markers: Array<{ label: string; weekIndex: number; hidden?: boolean }>,
+  weekCount: number,
+): MonthLabelPosition[] {
+  return markers.map((marker, index) => ({
+    label: marker.label,
+    startWeekIndex: marker.weekIndex,
+    endWeekIndex: markers[index + 1]?.weekIndex ?? weekCount,
+    hidden: marker.hidden,
+  }));
+}
+
+export function getMonthLabelPositions(
+  weeks: WeekColumn[],
+  options?: { reserveLeadingPartialMonth?: boolean },
+): MonthLabelPosition[] {
+  const markers: Array<{ label: string; weekIndex: number; hidden?: boolean }> =
+    [];
   let lastMonth = -1;
 
   weeks.forEach((week, weekIndex) => {
-    for (const day of week) {
+    const monthStartDay = week.find((day) => {
       if (!day) {
-        continue;
+        return false;
       }
 
-      const month = new Date(`${day.date}T00:00:00`).getMonth();
-      if (month !== lastMonth) {
-        labels.push({ label: MONTH_LABELS[month], weekIndex });
-        lastMonth = month;
-      }
-      break;
+      return new Date(`${day.date}T00:00:00`).getDate() === 1;
+    });
+
+    if (!monthStartDay) {
+      return;
     }
+
+    const month = new Date(`${monthStartDay.date}T00:00:00`).getMonth();
+    if (month === lastMonth) {
+      return;
+    }
+
+    markers.push({ label: MONTH_LABELS[month], weekIndex });
+    lastMonth = month;
   });
 
-  return labels;
+  if (options?.reserveLeadingPartialMonth) {
+    const placeholder = getLeadingPartialMonthPlaceholder(weeks);
+    if (placeholder) {
+      return toMonthSpans([placeholder, ...markers], weeks.length);
+    }
+  }
+
+  return toMonthSpans(markers, weeks.length);
 }

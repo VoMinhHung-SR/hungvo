@@ -1,31 +1,49 @@
+import { siteConfig } from "@/content/site.config";
+
 export const homeContent = {
   hero: {
-    greeting: "Hi, my name is",
+    eyebrow: "Frontend developer · product builder",
     name: "Hung Vo.",
-    tagline: "I build things for the web.",
+    tagline: {
+      lead: "I ship software for ",
+      emphasis: "problems I actually have.",
+    },
     description:
-      "I'm a Frontend Developer who enjoys shipping modern web products — from polished interfaces to AI-powered tools that solve real problems.",
+      "From a live clinic pharmacy platform to browser extensions and interview prep tools — React & Next.js up front, Django when the product needs a backend.",
+    highlights: [
+      "OUPharmacy ecosystem",
+      "Browser extensions",
+      "Maintained & deployed",
+    ],
     cta: {
-      label: "Check out my work!",
+      label: "View selected work",
       href: "/#projects",
+    },
+    secondaryCta: {
+      label: "GitHub",
+      href: siteConfig.social.github,
     },
   },
   about: {
     title: "About Me",
     paragraphs: [
-      "I'm a Frontend Developer who enjoys building clean, intentional interfaces with the React ecosystem — React, Next.js, and TypeScript are my daily tools.",
-      "I care about product mindset as much as code quality: shipping useful tools, iterating from real feedback, and keeping UX simple.",
-      "When I'm not coding, I'm usually exploring AI applications, system design, or sharpening fundamentals through continuous practice.",
+      "Most of what I've built started as something I needed — clinic software for pharmacy workflows, extensions to quiet noisy sites, scrapers to skip repetitive copy-paste. I keep the useful ones running instead of chasing the next greenfield demo.",
+      "I'm frontend-first with React and Next.js, but I'll own the Django API and database when the product demands it. Interview Frogde, mini games for LeetCode practice, tools like these — I learn by shipping small, then refining what sticks.",
     ],
-    skills: [
-      "JavaScript (ES6+)",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Node.js",
-      "Tailwind CSS",
-      "REST APIs",
-      "Git",
+    pullQuote: "Progress comes from consistency more than intensity.",
+    skillGroups: [
+      {
+        label: "Frontend",
+        items: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
+      },
+      {
+        label: "Backend & data",
+        items: ["Django", "PostgreSQL", "REST APIs"],
+      },
+      {
+        label: "Also comfortable",
+        items: ["Browser extensions", "Git", "AI-assisted workflows"],
+      },
     ],
     profileImage: "/images/profile.jpg",
     profileImageAlt: "Hung Vo",
@@ -60,15 +78,31 @@ export const homeContent = {
   },
   projects: {
     title: "Some Things I've Built",
-    featuredLabel: "Featured Project",
-    archiveTitle: "Other Noteworthy Projects",
+    subtitle:
+      "Selected products and tools — each with a full case study on problem, architecture, and what I learned.",
+    caseStudyLabel: "Case Study",
+    showMore: {
+      label: "Show more",
+      lessLabel: "Show less",
+    },
+    noteworthy: {
+      title: "Other Noteworthy Projects",
+      description:
+        "Extensions, tools, and browser mini games — smaller builds alongside the featured work above.",
+      viewArchive: {
+        label: "View the archive",
+        href: siteConfig.social.github,
+      },
+    },
   },
   learning: {
     title: "Learning Journey",
     focusLabel: "Current Focus",
     items: [
-      "AI Applications",
+      "AI-Assisted Development",
+      "AWS Services",
       "System Design",
+      "Full-Stack Product Development",
       "Browser Extensions",
       "LeetCode",
     ],
@@ -80,7 +114,7 @@ export const homeContent = {
       "I'm open to frontend roles, freelance collaborations, and interesting product ideas. Whether you have a question or just want to say hi, my inbox is always open.",
     cta: {
       label: "Say Hello",
-      href: "mailto:hello@hungvo.dev",
+      href: "mailto:vominhhug154@gmail.com",
     },
   },
 } as const;
