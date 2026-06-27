@@ -43,3 +43,23 @@ export function scrollToNavSection(sectionId: string): void {
   window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   window.history.replaceState(null, "", `/#${sectionId}`);
 }
+
+export function getHomeSectionId(href: string): string | null {
+  const match = href.match(/^\/#([\w-]+)$/);
+  return match?.[1] ?? null;
+}
+
+export function handleHomeSectionLinkClick(
+  event: { preventDefault: () => void },
+  href: string,
+  pathname: string,
+): boolean {
+  const sectionId = getHomeSectionId(href);
+  if (!sectionId || pathname !== "/") {
+    return false;
+  }
+
+  event.preventDefault();
+  scrollToNavSection(sectionId);
+  return true;
+}

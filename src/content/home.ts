@@ -2,33 +2,48 @@ import { siteConfig } from "@/content/site.config";
 
 export const homeContent = {
   hero: {
-    greeting: "Hi, my name is",
+    eyebrow: "Frontend developer · product builder",
     name: "Hung Vo.",
-    tagline: "I build modern web experiences",
-    description:"Frontend Developer specializing in React, Next.js, and TypeScript. Focused on building performant user experiences, shipping real products, and improving through continuous learning.",
+    tagline: {
+      lead: "I ship software for ",
+      emphasis: "problems I actually have.",
+    },
+    description:
+      "From a live clinic pharmacy platform to browser extensions and interview prep tools — React & Next.js up front, Django when the product needs a backend.",
+    highlights: [
+      "OUPharmacy ecosystem",
+      "Browser extensions",
+      "Maintained & deployed",
+    ],
     cta: {
-      label: "Check out my work!",
+      label: "View selected work",
       href: "/#projects",
+    },
+    secondaryCta: {
+      label: "GitHub",
+      href: siteConfig.social.github,
     },
   },
   about: {
     title: "About Me",
     paragraphs: [
-      "I'm a frontend developer who enjoys building products with React, Next.js, and TypeScript.", 
-      "I like turning ideas into real applications — from polished user interfaces to full-stack products backed by Django and PostgreSQL. I'm particularly interested in the intersection of product thinking, engineering, and user experience.",
-      "I believe progress comes from consistency more than intensity. That's why I enjoy maintaining long-term habits across coding, learning, and fitness, and why I'm always looking for ways to improve a little every day.",
-      "Currently, I'm exploring AI-assisted development, system design, and the tools that help developers build better software.",
+      "Most of what I've built started as something I needed — clinic software for pharmacy workflows, extensions to quiet noisy sites, scrapers to skip repetitive copy-paste. I keep the useful ones running instead of chasing the next greenfield demo.",
+      "I'm frontend-first with React and Next.js, but I'll own the Django API and database when the product demands it. Interview Frogde, mini games for LeetCode practice, tools like these — I learn by shipping small, then refining what sticks.",
     ],
-    skills: [
-      "JavaScript (ES6+)",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Django",
-      "PostgreSQL",
-      "Tailwind CSS",
-      "REST APIs",
-      "Git",
+    pullQuote: "Progress comes from consistency more than intensity.",
+    skillGroups: [
+      {
+        label: "Frontend",
+        items: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
+      },
+      {
+        label: "Backend & data",
+        items: ["Django", "PostgreSQL", "REST APIs"],
+      },
+      {
+        label: "Also comfortable",
+        items: ["Browser extensions", "Git", "AI-assisted workflows"],
+      },
     ],
     profileImage: "/images/profile.jpg",
     profileImageAlt: "Hung Vo",
@@ -99,7 +114,7 @@ export const homeContent = {
       "I'm open to frontend roles, freelance collaborations, and interesting product ideas. Whether you have a question or just want to say hi, my inbox is always open.",
     cta: {
       label: "Say Hello",
-      href: "mailto:hello@hungvo.dev",
+      href: "mailto:vominhhug154@gmail.com",
     },
   },
 } as const;

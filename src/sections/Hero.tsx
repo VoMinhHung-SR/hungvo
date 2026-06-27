@@ -3,12 +3,11 @@ import { Section } from "@/components/ui/Section";
 
 export function Hero() {
   return (
-    <Section className="relative flex min-h-[calc(100vh-6rem)] flex-col justify-center overflow-hidden py-section">
-      <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden />
-      <div
-        className="pointer-events-none absolute -top-32 right-0 h-72 w-72 rounded-full bg-accent/[0.07] blur-3xl"
-        aria-hidden
-      />
+    <Section className="relative flex min-h-[calc(100vh-6rem)] flex-col justify-center py-section">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <div className="hero-grid absolute inset-0" />
+        <div className="absolute -top-32 right-0 h-72 w-72 rounded-full bg-accent/[0.07] blur-3xl" />
+      </div>
       <HeroContent />
     </Section>
   );

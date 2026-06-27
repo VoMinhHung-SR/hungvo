@@ -23,10 +23,8 @@ export async function Learning() {
   return (
     <Section id="learning">
       <SectionHeading index="04">{title}</SectionHeading>
-      <div className="max-w-2xl">
-        <SectionLabel>{focusLabel}</SectionLabel>
-        <ArrowList items={items} />
-      </div>
+      <SectionLabel>{focusLabel}</SectionLabel>
+      <ArrowList items={items} className="sm:grid-cols-3" />
 
       {lastYearContributions && years.length > 0 ? (
         <ContributionGraph years={years} initialData={lastYearContributions} />

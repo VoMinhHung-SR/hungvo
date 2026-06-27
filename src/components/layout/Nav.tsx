@@ -6,7 +6,7 @@ import { siteConfig } from "@/content/site.config";
 import { InternalLink } from "@/components/ui/Link";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/cn";
-import { scrollToNavSection } from "@/lib/nav-scroll";
+import { handleHomeSectionLinkClick } from "@/lib/nav-scroll";
 import type { NavItem } from "@/types/content";
 
 const sectionIds = siteConfig.homeNav
@@ -30,12 +30,13 @@ function NavLink({
       : item.sectionId !== undefined && activeSection === item.sectionId;
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (item.kind !== "anchor" || !item.sectionId || pathname !== "/") {
+    if (item.kind !== "anchor" || !item.sectionId) {
       return;
     }
 
-    event.preventDefault();
-    scrollToNavSection(item.sectionId);
+    if (handleHomeSectionLinkClick(event, item.href, pathname)) {
+      return;
+    }
   };
 
   return (
