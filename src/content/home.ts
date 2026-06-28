@@ -68,9 +68,9 @@ export const homeContent = {
         role: "Full-stack Developer",
         range: "2023 — Present",
         bullets: [
-          "Designed and built Interview Frogde — an AI-powered interview practice assistant.",
-          "Developed a pharmacy management platform with React and Django.",
-          "Maintain open-source contributions and portfolio experiments on GitHub.",
+          "Interview Frogde — a LeetCode coach extension with progressive AI hints.",
+          "OUPharmacy ecosystem: clinic admin, customer store, and shared APIs.",
+          "Browser extensions, mini games, and tools on GitHub.",
         ],
         url: "https://github.com/VoMinhHung-SR",
       },
