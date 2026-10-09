@@ -10,11 +10,6 @@ export const homeContent = {
     },
     description:
       "From a live clinic pharmacy platform to browser extensions and interview prep tools — React & Next.js up front, Django when the product needs a backend.",
-    highlights: [
-      "OUPharmacy ecosystem",
-      "Browser extensions",
-      "Maintained & deployed",
-    ],
     cta: {
       label: "View selected work",
       href: "/#projects",
@@ -30,7 +25,6 @@ export const homeContent = {
       "Most of what I've built started as something I needed — clinic software for pharmacy workflows, extensions to quiet noisy sites, scrapers to skip repetitive copy-paste. I keep the useful ones running instead of chasing the next greenfield demo.",
       "I'm frontend-first with React and Next.js, but I'll own the Django API and database when the product demands it. Interview Frogde, mini games for LeetCode practice, tools like these — I learn by shipping small, then refining what sticks.",
     ],
-    pullQuote: "Progress comes from consistency more than intensity.",
     skillGroups: [
       {
         label: "Frontend",
@@ -108,12 +102,12 @@ export const homeContent = {
     ],
   },
   contact: {
-    eyebrow: "What's Next?",
+    eyebrow: "Work with me",
     title: "Get In Touch",
     description:
-      "I'm open to frontend roles, freelance collaborations, and interesting product ideas. Whether you have a question or just want to say hi, my inbox is always open.",
+      "Open to frontend roles, freelance product work, and collaborations around clinic software or browser tools. Email is the fastest way to reach me.",
     cta: {
-      label: "Say Hello",
+      label: "Email Hung",
       href: "mailto:vominhhug154@gmail.com",
     },
   },

@@ -1,6 +1,5 @@
 import { homeContent } from "@/content/home";
 import { siteConfig } from "@/content/site.config";
-import { TechPills } from "@/components/projects/TechPills";
 import { ProfileFrame } from "@/components/ui/ProfileFrame";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -16,7 +15,7 @@ function getInitials(name: string) {
 }
 
 export function About() {
-  const { title, paragraphs, pullQuote, skillGroups, profileImage, profileImageAlt } =
+  const { title, paragraphs, skillGroups, profileImage, profileImageAlt } =
     homeContent.about;
 
   return (
@@ -29,17 +28,13 @@ export function About() {
             <p className="text-pretty text-muted">{paragraphs[1]}</p>
           </div>
 
-          <blockquote className="relative border-l-2 border-accent/70 py-1 pl-5">
-            <p className="font-mono text-sm leading-relaxed text-foreground/90">
-              {pullQuote}
-            </p>
-          </blockquote>
-
           <div className="flex flex-col gap-5 border-t border-border pt-8">
             {skillGroups.map((group) => (
               <div key={group.label}>
-                <SectionLabel className="mb-3">{group.label}</SectionLabel>
-                <TechPills items={group.items} />
+                <SectionLabel className="mb-2">{group.label}</SectionLabel>
+                <p className="font-mono text-sm leading-relaxed text-muted">
+                  {group.items.join(" · ")}
+                </p>
               </div>
             ))}
           </div>

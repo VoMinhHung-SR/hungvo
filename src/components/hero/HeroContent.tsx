@@ -5,7 +5,6 @@ import type { MouseEvent } from "react";
 
 import { motion, useReducedMotion } from "framer-motion";
 
-import { TechPills } from "@/components/projects/TechPills";
 import { Button } from "@/components/ui/Button";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { homeContent } from "@/content/home";
@@ -34,14 +33,13 @@ function HeroCopy({
   animated: boolean;
   onSectionCtaClick: (event: MouseEvent<HTMLAnchorElement>) => void;
 }) {
-  const { eyebrow, name, tagline, description, highlights, cta, secondaryCta } =
+  const { eyebrow, name, tagline, description, cta, secondaryCta } =
     homeContent.hero;
 
   const Eyebrow = animated ? motion.p : "p";
   const Name = animated ? motion.h1 : "h1";
   const Tagline = animated ? motion.p : "p";
   const Description = animated ? motion.p : "p";
-  const Highlights = animated ? motion.div : "div";
   const Actions = animated ? motion.div : "div";
 
   const motionProps = animated ? { variants: item } : {};
@@ -91,10 +89,6 @@ function HeroCopy({
       >
         {description}
       </Description>
-
-      <Highlights {...motionProps} className="mt-8">
-        <TechPills items={highlights} />
-      </Highlights>
 
       <Actions
         {...motionProps}

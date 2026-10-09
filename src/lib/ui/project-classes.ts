@@ -11,6 +11,21 @@ export const projectIndexRowReversed = cn(
   "lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)_4rem]",
 );
 
+/** First featured project — larger media column, no reverse. */
+export const projectIndexRowEmphasized = cn(
+  "group grid gap-6 border-b border-border py-14 last:border-b-0 sm:py-16",
+  "lg:grid-cols-[4rem_minmax(0,1fr)_minmax(0,26rem)] lg:items-center lg:gap-10",
+);
+
+export const projectMediaLink = cn(
+  "block overflow-hidden rounded-[var(--radius-image)] ring-1 ring-border",
+  "transition-[box-shadow,ring-color] duration-150",
+  "group-hover:shadow-[var(--glow-accent)] group-hover:ring-accent/40",
+);
+
+export const projectMediaLinkDefault = "lg:max-w-[18rem]";
+export const projectMediaLinkEmphasized = "lg:max-w-[26rem] w-full";
+
 export const projectCard = cn(
   cardBase,
   cardHover,
@@ -25,13 +40,6 @@ export const techPill = cn(
 
 export const projectCoverFrame = cn(
   "relative overflow-hidden bg-surface-elevated",
-);
-
-export const projectCoverGrid = cn(
-  "pointer-events-none absolute inset-0 opacity-[0.18]",
-  "bg-[linear-gradient(color-mix(in_srgb,var(--accent)_35%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_srgb,var(--accent)_35%,transparent)_1px,transparent_1px)]",
-  "bg-size-[24px_24px]",
-  "transition-opacity duration-300 group-hover:opacity-[0.08]",
 );
 
 export const projectArchiveCard = cn(
