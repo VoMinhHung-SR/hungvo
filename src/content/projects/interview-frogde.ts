@@ -5,26 +5,27 @@ const imageBase = `/images/projects/${slug}`;
 
 export const interviewFrogde: CaseStudy = {
   slug,
-  title: "Interview Frogde",
+  title: "Interview Forge",
   description:
     "A LeetCode interview coach in your browser—get a nudge when you're stuck, honest feedback when you submit. Built to help you learn the pattern, not copy the answer.",
   techStack: ["Chrome MV3", "React", "TypeScript", "Vite", "AI"],
-  image: `${imageBase}/cover.png`,
+  image: `${imageBase}/cover-coach.png`,
   featured: true,
   role: "Full-stack Developer",
   timeline: "2026",
-  heroImage: `${imageBase}/hero.png`,
-  heroImageAlt: "Interview Frogde coaching panel on a LeetCode problem",
+  heroImage: `${imageBase}/hero-coach.png`,
+  heroImageAlt: "Interview Forge coaching panel on a LeetCode problem",
   seo: {
     publishedAt: "2026-06-05",
-    updatedAt: "2026-06-14",
-    ogImage: `${imageBase}/hero.png`,
+    updatedAt: "2026-10-10",
+    ogImage: `${imageBase}/hero-coach.png`,
     keywords: [
       "coding interview coach",
       "Chrome extension",
       "LeetCode",
       "AI hints",
       "interview prep",
+      "Interview Forge",
     ],
   },
   repoUrl: "https://github.com/VoMinhHung-SR/interview-forge",
@@ -34,7 +35,7 @@ export const interviewFrogde: CaseStudy = {
       type: "text",
       title: "Overview",
       paragraphs: [
-        "Interview Frogde is a Chrome extension for anyone prepping technical interviews on LeetCode. It acts like a patient mentor: hints that escalate when you need them, never a pasted solution.",
+        "Interview Forge is a Chrome extension for anyone prepping technical interviews on LeetCode. It acts like a patient mentor: hints that escalate when you need them, never a pasted solution.",
         "Submit your code and get a review focused on what interviewers care about—pattern, complexity, edge cases, and how to improve. Everything stays on your device; no account, no cloud sync.",
       ],
     },

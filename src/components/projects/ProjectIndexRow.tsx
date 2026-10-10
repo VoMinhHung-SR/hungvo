@@ -142,7 +142,6 @@ export function ProjectIndexRow({ project, index, className }: ProjectIndexRowPr
         <ProjectMedia
           src={project.image}
           alt={`${project.title} preview`}
-          label={project.title}
           aspect={emphasized ? "wide" : "square"}
           priority={emphasized}
         />

@@ -23,7 +23,7 @@ export const homeContent = {
     title: "About Me",
     paragraphs: [
       "Most of what I've built started as something I needed — clinic software for pharmacy workflows, extensions to quiet noisy sites, scrapers to skip repetitive copy-paste. I keep the useful ones running instead of chasing the next greenfield demo.",
-      "I'm frontend-first with React and Next.js, but I'll own the Django API and database when the product demands it. Interview Frogde, mini games for LeetCode practice, tools like these — I learn by shipping small, then refining what sticks.",
+      "I'm frontend-first with React and Next.js, but I'll own the Django API and database when the product demands it. Interview Forge, mini games for LeetCode practice, tools like these — I learn by shipping small, then refining what sticks.",
     ],
     skillGroups: [
       {
@@ -62,7 +62,7 @@ export const homeContent = {
         role: "Full-stack Developer",
         range: "2023 — Present",
         bullets: [
-          "Interview Frogde — a LeetCode coach extension with progressive AI hints.",
+          "Interview Forge — a LeetCode coach extension with progressive AI hints.",
           "OUPharmacy ecosystem: clinic admin, customer store, and shared APIs.",
           "Browser extensions, mini games, and tools on GitHub.",
         ],

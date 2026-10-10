@@ -46,7 +46,6 @@ export function CaseStudyHeader({ caseStudy }: CaseStudyHeaderProps) {
         <ProjectMedia
           src={caseStudy.heroImage}
           alt={caseStudy.heroImageAlt}
-          label={title}
           aspect="wide"
           priority
           interactive={false}
