@@ -9,7 +9,7 @@ export const oupharmacyStore: CaseStudy = {
   description:
     "Customer storefront for OUPharmacy—catalog and checkout first, then home cabinet, dose reminders, and in-app consult. Shares the clinic APIs so staff catalog is what shoppers see.",
   techStack: ["Next.js", "TypeScript", "Tailwind CSS", "next-intl", "TanStack Query"],
-  image: `${imageBase}/cover.png`,
+  image: `${imageBase}/cover-storefront.png`,
   featured: true,
   role: "Frontend Developer",
   timeline: "2025 – 2026",
