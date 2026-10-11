@@ -142,7 +142,7 @@ export function ProjectIndexRow({ project, index, className }: ProjectIndexRowPr
         <ProjectMedia
           src={project.image}
           alt={`${project.title} preview`}
-          aspect={emphasized ? "wide" : "square"}
+          aspect="wide"
           priority={emphasized}
         />
       </InternalLink>

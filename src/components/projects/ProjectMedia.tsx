@@ -18,37 +18,47 @@ interface ProjectMediaProps {
 const aspectClass: Record<ProjectMediaAspect, string> = {
   video: "aspect-video",
   square: "aspect-square",
-  wide: "aspect-[16/10]",
+  // Arbitrary 16/10 — denser than 16/9 in project rows; screenshots stay landscape.
+  wide: "aspect-16/10",
+};
+
+const aspectRatioStyle: Record<ProjectMediaAspect, string | undefined> = {
+  video: undefined,
+  square: undefined,
+  wide: "16 / 10",
 };
 
 export function ProjectMedia({
   src,
   alt,
   label,
-  aspect = "video",
+  aspect = "wide",
   priority = false,
   interactive = true,
   className,
 }: ProjectMediaProps) {
   return (
-    <div className={cn(projectCoverFrame, aspectClass[aspect], className)}>
+    <div
+      className={cn(projectCoverFrame, "relative", aspectClass[aspect], className)}
+      style={
+        aspectRatioStyle[aspect]
+          ? { aspectRatio: aspectRatioStyle[aspect] }
+          : undefined
+      }
+    >
       <Image
         src={src}
         alt={alt}
-        width={1600}
-        height={900}
+        fill
+        sizes="(min-width: 1024px) 34rem, 100vw"
         priority={priority}
         className={cn(
-          "h-full w-full object-cover transition-transform duration-300",
+          "object-cover object-top transition-transform duration-300",
           interactive && "group-hover:scale-[1.02]",
         )}
       />
-      <div
-        className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/55 via-transparent to-transparent"
-        aria-hidden
-      />
       {label ? (
-        <p className="pointer-events-none absolute bottom-3 left-4 font-mono text-xs text-foreground/85">
+        <p className="pointer-events-none absolute bottom-3 left-4 z-10 font-mono text-xs text-foreground/85">
           {label}
         </p>
       ) : null}

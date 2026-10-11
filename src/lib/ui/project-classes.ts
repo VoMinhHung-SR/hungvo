@@ -4,27 +4,27 @@ import { cardBase, cardHover } from "@/lib/ui/card-classes";
 
 export const projectIndexRow = cn(
   "group grid gap-6 border-b border-border py-12 last:border-b-0",
-  "lg:grid-cols-[4rem_minmax(0,1fr)_minmax(0,18rem)] lg:items-start lg:gap-8",
+  "lg:grid-cols-[4rem_minmax(0,1fr)_minmax(0,26rem)] lg:items-start lg:gap-8",
 );
 
 export const projectIndexRowReversed = cn(
-  "lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)_4rem]",
+  "lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)_4rem]",
 );
 
 /** First featured project — larger media column, no reverse. */
 export const projectIndexRowEmphasized = cn(
   "group grid gap-6 border-b border-border py-14 last:border-b-0 sm:py-16",
-  "lg:grid-cols-[4rem_minmax(0,1fr)_minmax(0,26rem)] lg:items-center lg:gap-10",
+  "lg:grid-cols-[4rem_minmax(0,1fr)_minmax(0,34rem)] lg:items-start lg:gap-10",
 );
 
 export const projectMediaLink = cn(
-  "block overflow-hidden rounded-[var(--radius-image)] ring-1 ring-border",
+  "block w-full overflow-hidden rounded-[var(--radius-image)] ring-1 ring-border/80",
   "transition-[box-shadow,ring-color] duration-150",
   "group-hover:shadow-[var(--glow-accent)] group-hover:ring-accent/40",
 );
 
-export const projectMediaLinkDefault = "lg:max-w-[18rem]";
-export const projectMediaLinkEmphasized = "lg:max-w-[26rem] w-full";
+export const projectMediaLinkDefault = "lg:max-w-[26rem]";
+export const projectMediaLinkEmphasized = "lg:max-w-[34rem]";
 
 export const projectCard = cn(
   cardBase,
