@@ -9,12 +9,12 @@ export const oupharmacyStore: CaseStudy = {
   description:
     "Customer storefront for OUPharmacy—catalog and checkout first, then home cabinet, dose reminders, and in-app consult. Shares the clinic APIs so staff catalog is what shoppers see.",
   techStack: ["Next.js", "TypeScript", "Tailwind CSS", "next-intl", "TanStack Query"],
-  image: `${imageBase}/cover-storefront.png`,
+  image: `${imageBase}/cover.png`,
   featured: true,
   role: "Frontend Developer",
   timeline: "2025 – 2026",
   heroImage: `${imageBase}/hero.png`,
-  heroImageAlt: "OUPharmacy Store catalog and account care",
+  heroImageAlt: "OUPharmacy Store homepage with smart medicine cabinet",
   seo: {
     publishedAt: "2025-08-10",
     updatedAt: "2026-10-09",

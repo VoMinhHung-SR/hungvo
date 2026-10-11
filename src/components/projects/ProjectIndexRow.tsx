@@ -49,7 +49,7 @@ export function ProjectIndexRow({ project, index, className }: ProjectIndexRowPr
     >
       <span
         className={cn(
-          "font-mono text-3xl leading-none text-border transition-colors duration-150 group-hover:text-accent lg:text-4xl",
+          "pt-0.5 font-mono text-xl leading-none text-border/80 transition-colors duration-150 group-hover:text-accent/80 lg:text-2xl",
           reversed ? "lg:order-3 lg:justify-self-end" : "lg:order-1",
         )}
         aria-hidden
@@ -59,16 +59,16 @@ export function ProjectIndexRow({ project, index, className }: ProjectIndexRowPr
 
       <div
         className={cn(
-          "flex min-w-0 flex-col gap-5 lg:order-2",
+          "flex min-w-0 flex-col gap-4 lg:order-2",
           reversed && "lg:items-end lg:text-right",
         )}
       >
-        <div className="flex flex-col gap-2">
-          {meta ? <p className="font-mono text-xs text-muted">{meta}</p> : null}
+        <div className="flex flex-col gap-1.5">
+          {meta ? <p className="font-mono text-[11px] tracking-wide text-muted">{meta}</p> : null}
           <h3
             className={cn(
               "font-semibold tracking-tight text-foreground",
-              emphasized ? "text-3xl sm:text-[2rem]" : "text-2xl",
+              emphasized ? "text-2xl sm:text-[1.75rem]" : "text-xl sm:text-2xl",
             )}
           >
             <InternalLink
@@ -78,24 +78,19 @@ export function ProjectIndexRow({ project, index, className }: ProjectIndexRowPr
               {project.title}
             </InternalLink>
           </h3>
-          <p
-            className={cn(
-              "max-w-prose leading-relaxed text-muted",
-              emphasized ? "text-base" : "text-sm",
-            )}
-          >
+          <p className="max-w-[40ch] text-sm leading-relaxed text-muted">
             {project.description}
           </p>
         </div>
 
         <TechPills
           items={project.techStack}
-          className={reversed ? "lg:justify-end" : undefined}
+          className={cn("gap-1.5", reversed && "lg:justify-end")}
         />
 
         <div
           className={cn(
-            "flex flex-wrap items-center gap-x-5 gap-y-2",
+            "flex flex-wrap items-center gap-x-4 gap-y-1.5 pt-0.5",
             reversed && "lg:justify-end",
           )}
         >

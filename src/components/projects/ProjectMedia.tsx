@@ -18,14 +18,14 @@ interface ProjectMediaProps {
 const aspectClass: Record<ProjectMediaAspect, string> = {
   video: "aspect-video",
   square: "aspect-square",
-  // Arbitrary 16/10 — denser than 16/9 in project rows; screenshots stay landscape.
-  wide: "aspect-16/10",
+  // Match project screenshot assets (1280×720 / 1600×900).
+  wide: "aspect-video",
 };
 
 const aspectRatioStyle: Record<ProjectMediaAspect, string | undefined> = {
   video: undefined,
   square: undefined,
-  wide: "16 / 10",
+  wide: "16 / 9",
 };
 
 export function ProjectMedia({
@@ -39,7 +39,12 @@ export function ProjectMedia({
 }: ProjectMediaProps) {
   return (
     <div
-      className={cn(projectCoverFrame, "relative", aspectClass[aspect], className)}
+      className={cn(
+        projectCoverFrame,
+        "relative w-full",
+        aspectClass[aspect],
+        className,
+      )}
       style={
         aspectRatioStyle[aspect]
           ? { aspectRatio: aspectRatioStyle[aspect] }
@@ -50,11 +55,11 @@ export function ProjectMedia({
         src={src}
         alt={alt}
         fill
-        sizes="(min-width: 1024px) 34rem, 100vw"
+        sizes="(min-width: 1024px) 40vw, 100vw"
         priority={priority}
         className={cn(
           "object-cover object-top transition-transform duration-300",
-          interactive && "group-hover:scale-[1.02]",
+          interactive && "group-hover:scale-[1.015]",
         )}
       />
       {label ? (
