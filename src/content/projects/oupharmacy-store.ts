@@ -7,7 +7,7 @@ export const oupharmacyStore: CaseStudy = {
   slug,
   title: "OUPharmacy Store",
   description:
-    "Customer storefront for OUPharmacy—catalog and checkout first, then home cabinet, dose reminders, and in-app consult. Shares the clinic APIs so staff catalog is what shoppers see.",
+    "Customer storefront for OUPharmacy—browse and checkout, then manage a home medicine cabinet, dose reminders, and 24/7 pharmacist consult on the same catalog staff maintain.",
   techStack: ["Next.js", "TypeScript", "Tailwind CSS", "next-intl", "TanStack Query"],
   image: `${imageBase}/cover.png`,
   featured: true,
@@ -17,7 +17,7 @@ export const oupharmacyStore: CaseStudy = {
   heroImageAlt: "OUPharmacy Store homepage with smart medicine cabinet",
   seo: {
     publishedAt: "2025-08-10",
-    updatedAt: "2026-10-09",
+    updatedAt: "2026-10-13",
     ogImage: `${imageBase}/hero.png`,
     keywords: [
       "pharmacy storefront",
@@ -35,8 +35,8 @@ export const oupharmacyStore: CaseStudy = {
       type: "text",
       title: "Overview",
       paragraphs: [
-        "Public shop for the OUPharmacy family: find medicines, check out without calling the clinic, keep a home record after the order.",
-        "Same product family as the staff dashboard (Pharmacy Management), not a second catalog. Storefront talks to store + main REST APIs; admin stays on the clinic app.",
+        "Public shop for the OUPharmacy family: find medicines, check out without calling the clinic, then keep a household record after the order.",
+        "Same catalog as Pharmacy Management—not a second inventory. The storefront talks to store + clinic REST APIs; staff keep owning stock and pricing in the admin app.",
       ],
     },
     {
@@ -44,10 +44,11 @@ export const oupharmacyStore: CaseStudy = {
       type: "bullets",
       title: "Key features",
       items: [
-        "Faceted search, categories, and home merchandising (hero, flash / hot sale)",
-        "Cart, guest checkout, and order history",
-        "Smart medicine cabinet: household stock, expiry alerts, dose schedule",
-        "Consult hub (pharmacist, doctor booking, medicine suggest) and EN/VI",
+        "Home merchandising: hero campaigns, consult tiles, flash / hot sale",
+        "Catalog search, categories, cart, and guest checkout",
+        "Smart medicine cabinet: stock, expiry tracking, dose schedule",
+        "In-app pharmacist consult and appointment / branch lookup",
+        "EN / VI via next-intl",
       ],
     },
     {

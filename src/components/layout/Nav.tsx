@@ -43,12 +43,20 @@ function NavLink({
     <InternalLink
       href={item.href}
       onClick={handleClick}
+      aria-current={isActive ? "true" : undefined}
       className={cn(
         "font-mono text-sm no-underline hover:no-underline transition-colors duration-150",
         isActive ? "text-accent" : "text-muted hover:text-accent",
       )}
     >
-      <span className="mr-1 text-accent">{String(index + 1).padStart(2, "0")}.</span>
+      <span
+        className={cn(
+          "mr-1 tabular-nums transition-colors duration-150",
+          isActive ? "text-accent" : "text-accent/55",
+        )}
+      >
+        {String(index + 1).padStart(2, "0")}.
+      </span>
       {item.label}
     </InternalLink>
   );

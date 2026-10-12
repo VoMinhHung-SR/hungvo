@@ -17,6 +17,8 @@
   --spacing-section: 6rem;
   --spacing-nav-offset: 5.5rem;
   --spacing-scroll-gap: 1.5rem;
+  /* Keep in sync with getScrollOffsetPx() — sticky nav + breathing room. */
+  --spacing-nav-scroll: calc(var(--spacing-nav-offset) + var(--spacing-scroll-gap));
 
   --text-hero: clamp(3rem, 8vw, 6rem);
   --text-section: clamp(2rem, 4vw, 2.75rem);
@@ -69,6 +71,7 @@
 
   --spacing-section: var(--spacing-section);
   --spacing-nav: var(--spacing-nav-offset);
+  --spacing-nav-scroll: var(--spacing-nav-scroll);
 
   --max-width-content: var(--width-content);
   --max-width-reading: var(--width-reading);

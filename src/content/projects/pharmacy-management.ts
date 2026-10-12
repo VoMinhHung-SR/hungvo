@@ -7,17 +7,17 @@ export const pharmacyManagement: CaseStudy = {
   slug,
   title: "Pharmacy Management System",
   description:
-    "The operations hub for OUPharmacy clinics—staff manage patients, appointments, and medicine stock from one dashboard. A live product with bilingual support, built for real pharmacy workflows.",
+    "Clinic ops dashboard for OUPharmacy—patients, bookings, prescribing, and inventory in one place, with weekly doctor load and monthly revenue at a glance.",
   techStack: ["React", "Django", "PostgreSQL", "JWT"],
   image: `${imageBase}/cover.png`,
   featured: true,
   role: "Full-stack Developer",
   timeline: "2025 – 2026",
   heroImage: `${imageBase}/hero.png`,
-  heroImageAlt: "OUPharmacy staff dashboard for patients and inventory",
+  heroImageAlt: "OUPharmacy staff dashboard with patient metrics and revenue charts",
   seo: {
     publishedAt: "2025-03-21",
-    updatedAt: "2026-06-01",
+    updatedAt: "2026-10-13",
     ogImage: `${imageBase}/hero.png`,
     keywords: [
       "pharmacy management",
@@ -25,6 +25,7 @@ export const pharmacyManagement: CaseStudy = {
       "Django REST",
       "React",
       "OUPharmacy",
+      "dashboard analytics",
     ],
   },
   liveUrl: "https://clinic-oupharmacy.vercel.app",
@@ -45,7 +46,7 @@ export const pharmacyManagement: CaseStudy = {
       title: "Overview",
       paragraphs: [
         "Pharmacy Management System is the staff-facing product in the OUPharmacy ecosystem—replacing spreadsheets and paper logs with one place to run the clinic day.",
-        "Pharmacists and admins handle patients, bookings, and inventory from a dashboard that speaks English and Vietnamese. The same data powers OUPharmacy Store on the customer side.",
+        "Pharmacists and admins handle patients, bookings, waiting rooms, prescribing, and payments from a bilingual dashboard. The same catalog and APIs feed OUPharmacy Store on the customer side.",
       ],
     },
     {
@@ -53,10 +54,11 @@ export const pharmacyManagement: CaseStudy = {
       type: "bullets",
       title: "Key features",
       items: [
-        "Patient records and role-based access for clinic staff",
-        "Appointment booking with live availability",
-        "Medicine inventory tracking with APIs for the storefront",
-        "Dashboard with metrics and shortcuts for daily ops",
+        "Home dashboard: patient / user / booking / product KPIs",
+        "Weekly doctor schedule chart and monthly revenue (VNĐ) trends",
+        "Examination flow: phiếu khám, lịch khám, phòng chờ, kê toa, thanh toán",
+        "Medicine catalog with SKU / variant units shared to the storefront",
+        "Role-based access and EN / VI UI for clinic staff",
       ],
     },
     {
@@ -84,9 +86,9 @@ export const pharmacyManagement: CaseStudy = {
       images: [
         {
           src: `${imageBase}/gallery-dashboard.png`,
-          alt: "OUPharmacy staff dashboard with inventory overview",
-          width: 1200,
-          height: 750,
+          alt: "OUPharmacy staff dashboard with weekly schedules and monthly revenue",
+          width: 1600,
+          height: 900,
         },
       ],
     },
