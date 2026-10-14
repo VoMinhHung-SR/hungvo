@@ -71,7 +71,7 @@ export function ContributionGraph({ years, initialData }: ContributionGraphProps
     <div className="mt-12">
       <SectionLabel>Contribution Graph</SectionLabel>
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
-        <ContentCard className="overflow-visible lg:min-w-min lg:flex-1">
+        <ContentCard className="overflow-visible px-4 pb-4 pt-2 sm:px-5 sm:pb-5 sm:pt-2 lg:min-w-min lg:flex-1">
           <div className={isPending ? "opacity-60" : undefined}>
             <ContributionGrid
               contributions={displayContributions}

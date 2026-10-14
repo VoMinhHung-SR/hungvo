@@ -36,7 +36,7 @@ export function ContributionGrid({
 
   return (
     <div className="overflow-x-auto overflow-y-visible md:overflow-visible">
-      <div role="img" aria-label={ariaLabel} className="relative w-max pt-1">
+      <div role="img" aria-label={ariaLabel} className="relative w-max">
         <div
           className="contrib-calendar-months text-muted"
           style={{ gridTemplateColumns: weekColumns }}

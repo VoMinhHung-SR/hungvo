@@ -15,8 +15,8 @@ export type ProjectSlug = keyof typeof caseStudies;
 export const allCaseStudies: CaseStudy[] = Object.values(caseStudies);
 
 const featuredOrder = [
-  "interview-frogde",
   "oupharmacy-store",
+  "interview-frogde",
   "pharmacy-management",
 ] as const satisfies readonly ProjectSlug[];
 

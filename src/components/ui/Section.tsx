@@ -10,7 +10,7 @@ export function Section({ id, className, children, ...props }: SectionProps) {
   return (
     <section
       id={id}
-      className={cn("scroll-mt-nav py-section", className)}
+      className={cn("scroll-mt-nav-scroll py-section", className)}
       {...props}
     >
       {children}

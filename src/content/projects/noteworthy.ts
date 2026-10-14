@@ -5,7 +5,7 @@ export const noteworthyProjects: ArchiveProject[] = [
     id: "avs-adblock-extension",
     title: "AnimeVietsub AdBlock",
     description:
-      "Chrome MV3 extension and Tampermonkey script to reduce static ads, popups, and pause-ad overlays on anime streaming sites.",
+      "MV3 extension + Tampermonkey script from one shared core — blocks ads, popups, and pause overlays on anime sites.",
     techStack: ["JavaScript", "Chrome MV3", "Tampermonkey"],
     repoUrl: "https://github.com/VoMinhHung-SR/avs_adblock_extension",
   },
@@ -13,7 +13,7 @@ export const noteworthyProjects: ArchiveProject[] = [
     id: "data-scraper-tool",
     title: "Data Scraper Tool",
     description:
-      "Chrome extension to extract tables, links, and custom CSS targets from web pages — with JSON/CSV export and optional presets for a few specific sites.",
+      "Scrape tables, links, or custom CSS targets from any page — highlight preview, JSON/CSV export, batch presets.",
     techStack: ["JavaScript", "Chrome APIs", "HTML"],
     repoUrl: "https://github.com/VoMinhHung-SR/data_scraper_tool",
   },
@@ -21,8 +21,8 @@ export const noteworthyProjects: ArchiveProject[] = [
     id: "hide-roads",
     title: "HideRoAds",
     description:
-      "Lightweight Chrome extension that hides intrusive ads and sponsored blocks while browsing — built for a cleaner reading experience.",
-    techStack: ["JavaScript", "Chrome APIs", "CSS"],
+      "Lightweight MV3 extension that hides ads and sponsored blocks on streaming sites.",
+    techStack: ["JavaScript", "Chrome MV3", "CSS"],
     repoUrl: "https://github.com/VoMinhHung-SR/HideRoAds",
-  }
+  },
 ];

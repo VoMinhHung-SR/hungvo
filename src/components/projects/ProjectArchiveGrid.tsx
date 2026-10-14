@@ -2,6 +2,7 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 import { ProjectArchiveCard } from "@/components/projects/ProjectArchiveCard";
 import { ExternalLink } from "@/components/ui/ExternalLink";
@@ -95,7 +96,13 @@ export function ProjectArchiveGrid({
   showHeader = true,
 }: ProjectArchiveGridProps) {
   const reduceMotion = useReducedMotion();
-  const shouldAnimate = (animated || animateInView) && !reduceMotion;
+  // Defer motion until after mount so SSR HTML matches the first client paint.
+  const [motionReady, setMotionReady] = useState(false);
+  useEffect(() => {
+    setMotionReady(true);
+  }, []);
+  const shouldAnimate =
+    motionReady && (animated || animateInView) && reduceMotion === false;
 
   if (projects.length === 0) {
     return null;

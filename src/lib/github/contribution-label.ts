@@ -15,14 +15,32 @@ function getOrdinalSuffix(day: number): string {
   }
 }
 
+const MONTH_NAMES = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+] as const;
+
+/** Deterministic labels — avoid toLocaleDateString (SSR/client locale mismatch). */
 function formatContributionDate(date: string, includeYear = false): string {
-  const value = new Date(`${date}T00:00:00`);
-  const month = value.toLocaleDateString("en-US", { month: "long" });
-  const day = value.getDate();
+  const [yearRaw, monthRaw, dayRaw] = date.split("-");
+  const year = Number(yearRaw);
+  const monthIndex = Number(monthRaw) - 1;
+  const day = Number(dayRaw);
+  const month = MONTH_NAMES[monthIndex] ?? "January";
   const suffix = getOrdinalSuffix(day);
 
   if (includeYear) {
-    return `${month} ${day}${suffix}, ${value.getFullYear()}`;
+    return `${month} ${day}${suffix}, ${year}`;
   }
 
   return `${month} ${day}${suffix}`;

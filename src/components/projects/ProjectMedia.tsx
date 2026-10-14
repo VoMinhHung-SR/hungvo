@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/cn";
-import { projectCoverFrame, projectCoverGrid } from "@/lib/ui/project-classes";
+import { projectCoverFrame } from "@/lib/ui/project-classes";
 
 type ProjectMediaAspect = "video" | "square" | "wide";
 
@@ -18,38 +18,52 @@ interface ProjectMediaProps {
 const aspectClass: Record<ProjectMediaAspect, string> = {
   video: "aspect-video",
   square: "aspect-square",
-  wide: "aspect-[16/10]",
+  // Match project screenshot assets (1280×720 / 1600×900).
+  wide: "aspect-video",
+};
+
+const aspectRatioStyle: Record<ProjectMediaAspect, string | undefined> = {
+  video: undefined,
+  square: undefined,
+  wide: "16 / 9",
 };
 
 export function ProjectMedia({
   src,
   alt,
   label,
-  aspect = "video",
+  aspect = "wide",
   priority = false,
   interactive = true,
   className,
 }: ProjectMediaProps) {
   return (
-    <div className={cn(projectCoverFrame, aspectClass[aspect], className)}>
+    <div
+      className={cn(
+        projectCoverFrame,
+        "relative w-full",
+        aspectClass[aspect],
+        className,
+      )}
+      style={
+        aspectRatioStyle[aspect]
+          ? { aspectRatio: aspectRatioStyle[aspect] }
+          : undefined
+      }
+    >
       <Image
         src={src}
         alt={alt}
-        width={1600}
-        height={900}
+        fill
+        sizes="(min-width: 1024px) 40vw, 100vw"
         priority={priority}
         className={cn(
-          "h-full w-full object-cover transition-[filter,transform] duration-300",
-          interactive && "grayscale group-hover:scale-[1.02] group-hover:grayscale-0",
+          "object-cover object-top transition-transform duration-300",
+          interactive && "group-hover:scale-[1.015]",
         )}
       />
-      <div className={projectCoverGrid} aria-hidden />
-      <div
-        className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/70 via-background/10 to-transparent"
-        aria-hidden
-      />
       {label ? (
-        <p className="pointer-events-none absolute bottom-3 left-4 font-mono text-xs text-foreground/75">
+        <p className="pointer-events-none absolute bottom-3 left-4 z-10 font-mono text-xs text-foreground/85">
           {label}
         </p>
       ) : null}

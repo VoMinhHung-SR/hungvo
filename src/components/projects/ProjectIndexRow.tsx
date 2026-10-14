@@ -10,7 +10,14 @@ import { TechPills } from "@/components/projects/TechPills";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { InternalLink } from "@/components/ui/Link";
 import { getCaseStudyBySlug } from "@/content/projects";
-import { projectIndexRow, projectIndexRowReversed } from "@/lib/ui/project-classes";
+import {
+  projectIndexRow,
+  projectIndexRowEmphasized,
+  projectIndexRowReversed,
+  projectMediaLink,
+  projectMediaLinkDefault,
+  projectMediaLinkEmphasized,
+} from "@/lib/ui/project-classes";
 import { cn } from "@/lib/cn";
 import type { ProjectCard as ProjectCardData } from "@/types/content";
 
@@ -29,15 +36,20 @@ export function ProjectIndexRow({ project, index, className }: ProjectIndexRowPr
   const liveUrl = caseStudy?.liveUrl;
   const meta = [caseStudy?.timeline, caseStudy?.role].filter(Boolean).join(" · ");
   const indexLabel = String(index + 1).padStart(2, "0");
-  const reversed = index % 2 === 1;
+  const emphasized = index === 0;
+  const reversed = !emphasized && index % 2 === 1;
 
   return (
     <article
-      className={cn(projectIndexRow, reversed && projectIndexRowReversed, className)}
+      className={cn(
+        emphasized ? projectIndexRowEmphasized : projectIndexRow,
+        reversed && projectIndexRowReversed,
+        className,
+      )}
     >
       <span
         className={cn(
-          "font-mono text-3xl leading-none text-border transition-colors duration-150 group-hover:text-accent lg:text-4xl",
+          "pt-0.5 font-mono text-xl leading-none text-border/80 transition-colors duration-150 group-hover:text-accent/80 lg:text-2xl",
           reversed ? "lg:order-3 lg:justify-self-end" : "lg:order-1",
         )}
         aria-hidden
@@ -47,13 +59,18 @@ export function ProjectIndexRow({ project, index, className }: ProjectIndexRowPr
 
       <div
         className={cn(
-          "flex min-w-0 flex-col gap-5 lg:order-2",
+          "flex min-w-0 flex-col gap-4 lg:order-2",
           reversed && "lg:items-end lg:text-right",
         )}
       >
-        <div className="flex flex-col gap-2">
-          {meta ? <p className="font-mono text-xs text-muted">{meta}</p> : null}
-          <h3 className="text-2xl font-semibold tracking-tight text-foreground">
+        <div className="flex flex-col gap-1.5">
+          {meta ? <p className="font-mono text-[11px] tracking-wide text-muted">{meta}</p> : null}
+          <h3
+            className={cn(
+              "font-semibold tracking-tight text-foreground",
+              emphasized ? "text-2xl sm:text-[1.75rem]" : "text-xl sm:text-2xl",
+            )}
+          >
             <InternalLink
               href={`/projects/${project.slug}`}
               className="transition-colors hover:text-accent"
@@ -61,19 +78,19 @@ export function ProjectIndexRow({ project, index, className }: ProjectIndexRowPr
               {project.title}
             </InternalLink>
           </h3>
-          <p className="max-w-prose text-sm leading-relaxed text-muted">
+          <p className="max-w-[40ch] text-sm leading-relaxed text-muted">
             {project.description}
           </p>
         </div>
 
         <TechPills
           items={project.techStack}
-          className={reversed ? "lg:justify-end" : undefined}
+          className={cn("gap-1.5", reversed && "lg:justify-end")}
         />
 
         <div
           className={cn(
-            "flex flex-wrap items-center gap-x-5 gap-y-2",
+            "flex flex-wrap items-center gap-x-4 gap-y-1.5 pt-0.5",
             reversed && "lg:justify-end",
           )}
         >
@@ -112,15 +129,16 @@ export function ProjectIndexRow({ project, index, className }: ProjectIndexRowPr
       <InternalLink
         href={`/projects/${project.slug}`}
         className={cn(
-          "block overflow-hidden rounded-[var(--radius-image)] ring-1 ring-border transition-[box-shadow,ring-color] duration-150 group-hover:shadow-[var(--glow-accent)] group-hover:ring-accent/40 lg:max-w-[18rem]",
+          projectMediaLink,
+          emphasized ? projectMediaLinkEmphasized : projectMediaLinkDefault,
           reversed ? "lg:order-1 lg:justify-self-start" : "lg:order-3 lg:justify-self-end",
         )}
       >
         <ProjectMedia
           src={project.image}
           alt={`${project.title} preview`}
-          label={project.title}
-          aspect="square"
+          aspect="wide"
+          priority={emphasized}
         />
       </InternalLink>
     </article>

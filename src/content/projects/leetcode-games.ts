@@ -5,7 +5,7 @@ export const leetcodeMiniGames: ArchiveProject[] = [
     id: "minigame-wordle",
     title: "Wordle Mini Game",
     description:
-      "Browser-based Wordle clone with a 6×5 grid, on-screen keyboard, stats, hard mode, and dark/light themes — no build step required.",
+      "Vanilla JS Wordle — 6×5 grid, keyboard, stats, hard mode, themes. No build step.",
     techStack: ["JavaScript", "HTML", "CSS"],
     repoUrl: "https://github.com/VoMinhHung-SR/minigame-wordle",
   },
@@ -13,7 +13,7 @@ export const leetcodeMiniGames: ArchiveProject[] = [
     id: "minigame-sudoku",
     title: "Sudoku Game",
     description:
-      "Responsive Sudoku with real-time validation, keyboard navigation, auto-timer, win tracking, and dark/light theme toggle.",
+      "9×9 Sudoku with live validation, keyboard nav, timer, and dark/light theme.",
     techStack: ["JavaScript", "CSS", "HTML"],
     repoUrl: "https://github.com/VoMinhHung-SR/minigame-sudoku",
   },
